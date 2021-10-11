@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AdaShip:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AdaShip_jar</output-path>
+    <root id="archive" name="AdaShip.jar">
+      <element id="module-output" name="AdaShip" />
+    </root>
+  </artifact>
+</component>
