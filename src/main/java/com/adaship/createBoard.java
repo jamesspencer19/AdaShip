@@ -17,22 +17,23 @@ public class createBoard {
 
     public static void printGameBoard(char[][] gameboard, char water, char ship, char hit, char miss){
         int gameBoardLength = gameboard.length;
-        System.out.print("   ");
-        for(int i=0; i < gameBoardLength;i++){
-            System.out.print(i + 1 + " ");
+        int gameBoardWidth = gameboard[0].length;
+        System.out.print("    ");
+        for(int i=0; i < gameBoardWidth;i++){
+            System.out.print(i + 1 + "  ");
         }
         System.out.println();
         for(int row = 0; row < gameBoardLength; row++){
             if(row < 9){
-                System.out.print(row + 1 + "  ");
+                System.out.print(row + 1 + "   ");
             }else{
-                System.out.print(row + 1 + " ");
+                System.out.print(row + 1 + "  ");
             }
-            for(int col = 0; col < gameBoardLength; col++){
+            for(int col = 0; col < gameBoardWidth; col++){
                 if(col < 9){
-                    System.out.print(BLUE + water + " " + RESET);
-                }else{
                     System.out.print(BLUE + water + "  " + RESET);
+                }else{
+                    System.out.print(BLUE + water + "   " + RESET);
                 }
             }
             System.out.println();
