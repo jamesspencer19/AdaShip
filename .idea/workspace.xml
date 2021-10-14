@@ -10,9 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/configReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/configReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +116,7 @@
       <workItem from="1633959171118" duration="796000" />
       <workItem from="1633960465717" duration="407000" />
       <workItem from="1633960922367" duration="16316000" />
-      <workItem from="1634118003677" duration="22359000" />
+      <workItem from="1634118003677" duration="25996000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -152,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634203611927</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Table Formatting Changed">
+      <created>1634217270446</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1634217270446</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +183,7 @@
     <MESSAGE value="Challenge Outline ReadMe basic implementation" />
     <MESSAGE value="Config File Read&#10;Board Created using Config Values" />
     <MESSAGE value="Basic Menu Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic Menu Implemented" />
+    <MESSAGE value="Table Formatting Changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Table Formatting Changed" />
   </component>
 </project>

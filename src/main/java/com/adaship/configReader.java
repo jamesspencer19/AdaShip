@@ -20,30 +20,8 @@ public class configReader {
     public static int submarine;
     public static int destroyer;
     public static int patrol;
+    public static int shiptotal;
 
-    public static char getShip() {
-        return ship;
-    }
-
-    public static void setShip(char ship) {
-        configReader.ship = ship;
-    }
-
-    public static char getHit() {
-        return hit;
-    }
-
-    public static void setHit(char hit) {
-        configReader.hit = hit;
-    }
-
-    public static char getMiss() {
-        return miss;
-    }
-
-    public static void setMiss(char miss) {
-        configReader.miss = miss;
-    }
 
     public static void readConfigJSON() throws IOException {
         BufferedReader br=new BufferedReader(new FileReader("config.json"));
@@ -64,6 +42,7 @@ public class configReader {
 
 
         JsonArray jsonArray = gsonObj.getAsJsonArray("boats");
+        shiptotal = jsonArray.size();
         for (int i = 0; i < jsonArray.size(); i++) {
             carrier = jsonArray.get(i).getAsJsonObject().get("carrier").getAsInt();
             battleship = jsonArray.get(i).getAsJsonObject().get("battleship").getAsInt();
@@ -111,6 +90,29 @@ public class configReader {
 
     public static void setPatrol(int patrol) {
         configReader.patrol = patrol;
+    }
+    public static char getShip() {
+        return ship;
+    }
+
+    public static void setShip(char ship) {
+        configReader.ship = ship;
+    }
+
+    public static char getHit() {
+        return hit;
+    }
+
+    public static void setHit(char hit) {
+        configReader.hit = hit;
+    }
+
+    public static char getMiss() {
+        return miss;
+    }
+
+    public static void setMiss(char miss) {
+        configReader.miss = miss;
     }
 
     public static int getBoardLength() {
