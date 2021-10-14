@@ -10,22 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/configReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdaShip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdaShip.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/AdaShip_jar/AdaShip.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AdaShip/com/adaship/AdaShip.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adaship/AdaShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShip.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +53,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/AdaShip_jar/AdaShip.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/adaship" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -72,6 +61,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\James PC\Desktop\AdaShip\src\main\java\com\adaship" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\James PC\Desktop\AdaShip" />
     </key>
@@ -125,7 +117,7 @@
       <workItem from="1633959171118" duration="796000" />
       <workItem from="1633960465717" duration="407000" />
       <workItem from="1633960922367" duration="16316000" />
-      <workItem from="1634118003677" duration="17355000" />
+      <workItem from="1634118003677" duration="18242000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -141,7 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634050144571</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Config File Read&#10;Board Created using Config Values">
+      <created>1634202509608</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634202509608</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Config File Read&#10;Board Created using Config Values">
+      <created>1634202561002</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1634202561002</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +168,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Git Commit" />
     <MESSAGE value="Challenge Outline ReadMe basic implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Challenge Outline ReadMe basic implementation" />
+    <MESSAGE value="Config File Read&#10;Board Created using Config Values" />
+    <option name="LAST_COMMIT_MESSAGE" value="Config File Read&#10;Board Created using Config Values" />
   </component>
 </project>
