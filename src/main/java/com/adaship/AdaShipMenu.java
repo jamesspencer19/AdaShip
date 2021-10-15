@@ -22,6 +22,7 @@ public class AdaShipMenu {
             case 1:{
                 configReader.readConfigJSON();
                 char[][] gameboard = createBoard.createGameBoard(configReader.getBoardLength(),configReader.getBoardWidth(),configReader.getWater());
+                placeShips.placeShipsArray(gameboard,randomGenerator.randomCoordinates(),randomGenerator.randDirection());
                 createBoard.printGameBoard(gameboard, configReader.getWater(), configReader.getShip(),configReader.getHit(),configReader.getMiss());
             }
             break;

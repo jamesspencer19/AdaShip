@@ -6,6 +6,8 @@ public class createBoard {
 
     public static final String BLUE = "\033[0;34m";    // BLUE
     public static final String RESET = "\033[0m";  // Text Reset
+    public static final String RED = "\u001B[31m";
+
 
     public static char [][] createGameBoard(int boardLength, int boardWidth, char water){
         char[][] gameboard = new char[boardLength][boardWidth];
@@ -30,10 +32,11 @@ public class createBoard {
                 System.out.print(row + 1 + "  ");
             }
             for(int col = 0; col < gameBoardWidth; col++){
-                if(col < 9){
-                    System.out.print(BLUE + water + "  " + RESET);
-                }else{
-                    System.out.print(BLUE + water + "   " + RESET);
+                char position = gameboard[row][col];
+                    if (position==ship){
+                        System.out.print(RED + position + "  " + RESET);
+                    }else{
+                        System.out.print(BLUE + water + "  " + RESET);
                 }
             }
             System.out.println();

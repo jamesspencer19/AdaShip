@@ -52,6 +52,14 @@ public class configReader {
         }
     }
 
+    public static int getShiptotal() {
+        return shiptotal;
+    }
+
+    public static void setShiptotal(int shiptotal) {
+        configReader.shiptotal = shiptotal;
+    }
+
     public static int getCarrier() {
         return carrier;
     }
