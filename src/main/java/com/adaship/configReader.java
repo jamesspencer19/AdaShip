@@ -20,8 +20,6 @@ public class configReader {
     public static int submarine;
     public static int destroyer;
     public static int patrol;
-    public static int shiptotal;
-
 
     public static void readConfigJSON() throws IOException {
         BufferedReader br=new BufferedReader(new FileReader("config.json"));
@@ -42,22 +40,13 @@ public class configReader {
 
 
         JsonArray jsonArray = gsonObj.getAsJsonArray("boats");
-        shiptotal = jsonArray.size();
-        for (int i = 0; i < jsonArray.size(); i++) {
+        for (int i = 0; i < 1; i++) {
             carrier = jsonArray.get(i).getAsJsonObject().get("carrier").getAsInt();
             battleship = jsonArray.get(i).getAsJsonObject().get("battleship").getAsInt();
             destroyer = jsonArray.get(i).getAsJsonObject().get("destroyer").getAsInt();
             submarine = jsonArray.get(i).getAsJsonObject().get("submarine").getAsInt();
             patrol = jsonArray.get(i).getAsJsonObject().get("patrol").getAsInt();
         }
-    }
-
-    public static int getShiptotal() {
-        return shiptotal;
-    }
-
-    public static void setShiptotal(int shiptotal) {
-        configReader.shiptotal = shiptotal;
     }
 
     public static int getCarrier() {
