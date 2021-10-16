@@ -21,6 +21,7 @@ public class AdaShipMenu {
         switch (answer){
             case 1:{
                 computer.computerPlayer();
+                player.playerPlaceShips();
             }
             break;
             case 2: {

@@ -7,7 +7,6 @@ public class randomGenerator {
     public static int [] randCoordinates = new int[2];
     public static char randDirection;
     public static char water = configReader.getWater();
-    public static char ship = configReader.getShip();
 
 
     public static void randomiser(){
@@ -17,7 +16,6 @@ public class randomGenerator {
         randCoordinates[1] = rand.nextInt(width);
         char [] directionArray = {'U', 'R', 'D', 'L'};
         randDirection = directionArray[rand.nextInt(directionArray.length)];
-        System.out.println("Direction: " + randDirection);
     }
 
     public static boolean validateLocation(char[][] gameboard, int[] coordinates, char direction, int shipsize){
@@ -51,10 +49,8 @@ public class randomGenerator {
                 i--;
             }
         }catch (ArrayIndexOutOfBoundsException exception){
-            System.out.println("Out of Bounds");
             flag = false;
         }
-        System.out.println(flag);
         return flag;
     }
 

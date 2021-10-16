@@ -13,7 +13,6 @@ public class computer {
     public static void computerPlayer() {
         randomGenerator.randomiser();
         int[] shipsizes = {carrier, battleship, submarine, destroyer, patrol};
-        System.out.println(Arrays.toString(shipsizes));
         char[][] computerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
         for (int i = 0; i < shipsizes.length; i++) {
             boolean repeat = true;
