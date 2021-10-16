@@ -28,5 +28,6 @@ public class computer {
                 }
             }
         }
+        createBoard.printGameBoard(computerGameboard);
     }
 }

@@ -9,15 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/configReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/configReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" afterDir="false" />
-    </list>
+    <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +100,7 @@
       <workItem from="1633960922367" duration="16316000" />
       <workItem from="1634118003677" duration="27658000" />
       <workItem from="1634223838375" duration="16062000" />
-      <workItem from="1634304648382" duration="7712000" />
+      <workItem from="1634304648382" duration="75617000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -166,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634293739601</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Computer Board Generated">
+      <created>1634312711023</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1634312711023</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +191,7 @@
     <MESSAGE value="Table Formatting Changed" />
     <MESSAGE value="Random Co-Ordinates and Direction" />
     <MESSAGE value="Computer Random Generator Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Computer Random Generator Implemented" />
+    <MESSAGE value="Computer Board Generated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Computer Board Generated" />
   </component>
 </project>

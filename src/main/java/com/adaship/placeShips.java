@@ -36,7 +36,6 @@ public class placeShips {
             }
             i--;
         }
-        createBoard.printGameBoard(gameboard, water, ship, configReader.getHit(), configReader.getMiss());
         return gameboard;
     }
 }

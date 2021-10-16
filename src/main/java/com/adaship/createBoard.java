@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class createBoard {
 
+    public static char water = configReader.getWater();
+    public static char ship = configReader.getShip();
+    public static char hit = configReader.getHit();
+    public static char miss = configReader.getMiss();
+
     public static final String BLUE = "\033[0;34m";    // BLUE
     public static final String RESET = "\033[0m";  // Text Reset
     public static final String RED = "\u001B[31m";
@@ -18,7 +23,7 @@ public class createBoard {
         return gameboard;
     }
 
-    public static void printGameBoard(char[][] gameboard, char water, char ship, char hit, char miss){
+    public static void printGameBoard(char[][] gameboard){
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
         System.out.print("    ");
