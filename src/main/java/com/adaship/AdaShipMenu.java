@@ -20,8 +20,7 @@ public class AdaShipMenu {
         int answer = sc.nextInt();
         switch (answer){
             case 1:{
-                computer.computerPlayer();
-                player.playerPlaceShips();
+                gamelogic.playerAgainstComputer(computer.computerPlayer(), player.playerPlaceShips());
             }
             break;
             case 2: {

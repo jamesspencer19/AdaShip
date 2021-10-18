@@ -10,12 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,15 +88,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,7 +118,8 @@
       <workItem from="1633960922367" duration="16316000" />
       <workItem from="1634118003677" duration="27658000" />
       <workItem from="1634223838375" duration="16062000" />
-      <workItem from="1634304648382" duration="79193000" />
+      <workItem from="1634304648382" duration="79244000" />
+      <workItem from="1634547887866" duration="11921000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -192,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634380918379</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Player Place Ships">
+      <created>1634384941223</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1634384941223</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +226,7 @@
     <MESSAGE value="Computer Random Generator Implemented" />
     <MESSAGE value="Computer Board Generated" />
     <MESSAGE value="Print Board Clean-up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Print Board Clean-up" />
+    <MESSAGE value="Player Place Ships" />
+    <option name="LAST_COMMIT_MESSAGE" value="Player Place Ships" />
   </component>
 </project>

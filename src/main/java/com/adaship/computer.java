@@ -10,7 +10,7 @@ public class computer {
     public static int patrol = configReader.getPatrol();
 
 
-    public static void computerPlayer() {
+    public static char[][] computerPlayer() {
         randomGenerator.randomiser();
         int[] shipsizes = {carrier, battleship, submarine, destroyer, patrol};
         char[][] computerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
@@ -28,5 +28,6 @@ public class computer {
             }
         }
         createBoard.printGameBoard(computerGameboard);
+        return computerGameboard;
     }
 }
