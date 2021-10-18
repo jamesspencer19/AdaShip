@@ -54,4 +54,35 @@ public class createBoard {
         }
         System.out.println();
     }
+
+    public static void printTargetBoard(char[][] gameboard){
+        int gameBoardLength = gameboard.length;
+        int gameBoardWidth = gameboard[0].length;
+        System.out.print("    ");
+        for(int i=0; i < gameBoardWidth;i++){
+            System.out.print(i + 1 + "  ");
+        }
+        System.out.println();
+        for(int row = 0; row < gameBoardLength; row++){
+            if(row < 9){
+                System.out.print(row + 1 + "   ");
+            }else{
+                System.out.print(row + 1 + "  ");
+            }
+            for(int col = 0; col < gameBoardWidth; col++){
+                char position = gameboard[row][col];
+                if(position==hit){
+                    System.out.print(RED + position + "  " + RESET);
+                }else if(position==miss){
+                    System.out.print(position + "  " + RESET);
+                }
+                else{
+                    System.out.print(BLUE + water + "  " + RESET);
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
 }

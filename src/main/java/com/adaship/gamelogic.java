@@ -34,7 +34,7 @@ public class gamelogic {
             if (turn.equals("player")){
                 player.playerShot();
                 guessAgainstTarget(computergameboard,player.getPlayercoordinates());
-                createBoard.printGameBoard(computergameboard);
+                createBoard.printTargetBoard(computergameboard);
                 turn = "computer";
                 System.out.println(turn);
             }else if(turn.equals("computer")){
