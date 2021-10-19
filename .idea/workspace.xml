@@ -11,8 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,17 +86,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AdaShip" />
@@ -116,7 +106,8 @@
       <workItem from="1634118003677" duration="27658000" />
       <workItem from="1634223838375" duration="16062000" />
       <workItem from="1634304648382" duration="79244000" />
-      <workItem from="1634547887866" duration="13598000" />
+      <workItem from="1634547887866" duration="16757000" />
+      <workItem from="1634631458374" duration="9395000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -202,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634568147425</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Basic Player vs Computer with TargetBoard">
+      <created>1634568893995</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1634568893995</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +230,7 @@
     <MESSAGE value="Print Board Clean-up" />
     <MESSAGE value="Player Place Ships" />
     <MESSAGE value="Basic Player vs Computer implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic Player vs Computer implementation" />
+    <MESSAGE value="Basic Player vs Computer with TargetBoard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Player vs Computer with TargetBoard" />
   </component>
 </project>

@@ -12,8 +12,8 @@ public class randomGenerator {
     public static void randomiser(){
         int length = configReader.getBoardLength();
         int width = configReader.getBoardWidth();
-        randCoordinates[0] = rand.nextInt(length);
-        randCoordinates[1] = rand.nextInt(width);
+        randCoordinates[0] = rand.nextInt(length -1);
+        randCoordinates[1] = rand.nextInt(width -1);
         char [] directionArray = {'U', 'R', 'D', 'L'};
         randDirection = directionArray[rand.nextInt(directionArray.length)];
     }
@@ -21,6 +21,17 @@ public class randomGenerator {
     public static boolean validateLocation(char[][] gameboard, int[] coordinates, char direction, int shipsize){
         int row = coordinates[0];
         int col = coordinates[1];
+        if (direction == 'U') {
+            col = col-1;
+        } else if (direction == 'D') {
+            col = col-2;
+            row = row-1;
+        } else if (direction == 'L') {
+            row = row-1;
+        } else if (direction == 'R') {
+            col = col-2;
+            row = row-1;
+        }
         int i = shipsize;
         boolean flag = true;
         try {
