@@ -59,6 +59,7 @@ public class player {
                         }
                     }
                 }
+                createBoard.printGameBoard(playerGameboard);
             }
         }
         targetboard = createBoard.createGameBoard(configReader.getBoardLength(),configReader.getBoardWidth(),configReader.getWater());

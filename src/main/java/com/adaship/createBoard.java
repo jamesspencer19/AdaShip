@@ -24,6 +24,7 @@ public class createBoard {
     }
 
     public static void printGameBoard(char[][] gameboard){
+        System.out.println("-----------GAME BOARD------------");
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
         System.out.print("    ");
@@ -56,6 +57,7 @@ public class createBoard {
     }
 
     public static void printTargetBoard(char[][] gameboard){
+        System.out.println("----------TARGET BOARD-----------");
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
         System.out.print("    ");
@@ -63,13 +65,13 @@ public class createBoard {
             System.out.print(i + 1 + "  ");
         }
         System.out.println();
-        for(int row = 0; row < gameBoardLength; row++){
+        for(int row = 0; row < gameBoardLength -1; row++){
             if(row < 9){
                 System.out.print(row + 1 + "   ");
             }else{
                 System.out.print(row + 1 + "  ");
             }
-            for(int col = 0; col < gameBoardWidth; col++){
+            for(int col = 0; col < gameBoardWidth -1; col++){
                 char position = gameboard[row][col];
                 if(position==hit){
                     System.out.print(RED + position + "  " + RESET);

@@ -11,15 +11,13 @@ public class placeShips {
         int row = coordinates[0];
         int col = coordinates[1];
         if (direction == 'U') {
-            col = col-1;
+            row = row+1;
         } else if (direction == 'D') {
-            col = col-1;
-            row=row-2;
+            row = row - 1;
         } else if (direction == 'L') {
-            row = row-1;
+            col = col+1;
         } else if (direction == 'R') {
-            col = col-2;
-            row = row-1;
+            col = col-1;
         }
         int i = shipsize;
         while (i > 0) {

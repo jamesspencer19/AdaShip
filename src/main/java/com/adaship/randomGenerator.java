@@ -12,8 +12,8 @@ public class randomGenerator {
     public static void randomiser(){
         int length = configReader.getBoardLength();
         int width = configReader.getBoardWidth();
-        randCoordinates[0] = rand.nextInt(length -1);
-        randCoordinates[1] = rand.nextInt(width -1);
+        randCoordinates[0] = rand.nextInt(length);
+        randCoordinates[1] = rand.nextInt(width);
         char [] directionArray = {'U', 'R', 'D', 'L'};
         randDirection = directionArray[rand.nextInt(directionArray.length)];
     }
@@ -22,15 +22,13 @@ public class randomGenerator {
         int row = coordinates[0];
         int col = coordinates[1];
         if (direction == 'U') {
-            col = col-1;
+            row = row+1;
         } else if (direction == 'D') {
-            col = col-2;
-            row = row-1;
+            row = row - 1;
         } else if (direction == 'L') {
-            row = row-1;
+            col = col+1;
         } else if (direction == 'R') {
-            col = col-2;
-            row = row-1;
+            col = col-1;
         }
         int i = shipsize;
         boolean flag = true;
