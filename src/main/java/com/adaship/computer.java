@@ -27,7 +27,6 @@ public class computer {
                 }
             }
         }
-        createBoard.printGameBoard(computerGameboard);
         return computerGameboard;
     }
 }
