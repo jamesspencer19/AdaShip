@@ -1,9 +1,9 @@
 package com.adaship;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class player {
+    public static char [] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     public static int carrier = configReader.getCarrier();
     public static int battleship = configReader.getBattleship();
     public static int submarine = configReader.getSubmarine();
@@ -27,8 +27,17 @@ public class player {
                     while (repeat) {
                         System.out.println("Place Ship, Size: " + shipsizes[i] + " Enter Row Co-Ordinates: ");
                         int row = sc.nextInt();
-                        System.out.println("Place Ship, Size: " + shipsizes[i] + " Enter Column Co-Ordinates: ");
-                        int col = sc.nextInt();
+                        row = row-1;
+                        System.out.println("Place Ship, Size: " + shipsizes[i] + " Enter Column Co-Ordinates (A-Z): ");
+                        char charcol = Character.toUpperCase(sc.next().charAt(0));
+                        int col = 0;
+                        for (int b = 0; b < alphabet.length;b++) {
+                            if (alphabet[b] == charcol) {
+                                col = b;
+                            }
+                        }
+                        System.out.println(col);
+//                        col = col-1;
                         int[] coordinates = {row, col};
                         System.out.println("Enter the direction of the ship e.g (U,D,L,R): ");
                         char direction = Character.toUpperCase(sc.next().charAt(0));
@@ -64,6 +73,7 @@ public class player {
         }
         targetboard = createBoard.createGameBoard(configReader.getBoardLength(),configReader.getBoardWidth(),configReader.getWater());
         createBoard.printTargetBoard(targetboard);
+        randomGenerator.clearScreen();
         return playerGameboard;
     }
 

@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class createBoard {
 
+    public static char [] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
     public static char water = configReader.getWater();
     public static char ship = configReader.getShip();
     public static char hit = configReader.getHit();
@@ -29,16 +31,16 @@ public class createBoard {
         int gameBoardWidth = gameboard[0].length;
         System.out.print("    ");
         for(int i=0; i < gameBoardWidth;i++){
-            System.out.print(i + 1 + "  ");
+            System.out.print(alphabet[i] + "  ");
         }
         System.out.println();
-        for(int row = 0; row < gameBoardLength; row++){
+        for(int row = 0; row < gameBoardLength ; row++){
             if(row < 9){
                 System.out.print(row + 1 + "   ");
             }else{
                 System.out.print(row + 1 + "  ");
             }
-            for(int col = 0; col < gameBoardWidth; col++){
+            for(int col = 0; col < gameBoardWidth ; col++){
                 char position = gameboard[row][col];
                     if (position==ship){
                         System.out.print(GREEN + position + "  " + RESET);
