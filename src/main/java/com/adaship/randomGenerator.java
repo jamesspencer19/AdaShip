@@ -63,12 +63,6 @@ public class randomGenerator {
         return flag;
     }
 
-    public static void clearScreen(){
-        for (int i =0; i<25;i++){
-            System.out.println();
-        }
-    }
-
     public static int[] getRandCoordinates() {
         return randCoordinates;
     }

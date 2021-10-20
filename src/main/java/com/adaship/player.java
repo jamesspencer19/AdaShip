@@ -73,15 +73,19 @@ public class player {
         }
         targetboard = createBoard.createGameBoard(configReader.getBoardLength(),configReader.getBoardWidth(),configReader.getWater());
         createBoard.printTargetBoard(targetboard);
-        randomGenerator.clearScreen();
         return playerGameboard;
     }
 
     public static void playerShot(){
         System.out.println("Enter Row Co-Ordinates for Torpedo Shot: ");
         int row = sc.nextInt() - 1;
-        System.out.println("Enter Column Co-Ordinates for Torpedo Shot: ");
-        int col = sc.nextInt() - 1;
+        char charcol = Character.toUpperCase(sc.next().charAt(0));
+        int col = 0;
+        for (int b = 0; b < alphabet.length;b++) {
+            if (alphabet[b] == charcol) {
+                col = b;
+            }
+        }
         playercoordinates = new int[]{row, col};
     }
 

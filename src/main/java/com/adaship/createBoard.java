@@ -64,16 +64,16 @@ public class createBoard {
         int gameBoardWidth = gameboard[0].length;
         System.out.print("    ");
         for(int i=0; i < gameBoardWidth;i++){
-            System.out.print(i + 1 + "  ");
+            System.out.print(alphabet[i] + "  ");
         }
         System.out.println();
-        for(int row = 0; row < gameBoardLength -1; row++){
+        for(int row = 0; row < gameBoardLength; row++){
             if(row < 9){
                 System.out.print(row + 1 + "   ");
             }else{
                 System.out.print(row + 1 + "  ");
             }
-            for(int col = 0; col < gameBoardWidth -1; col++){
+            for(int col = 0; col < gameBoardWidth; col++){
                 char position = gameboard[row][col];
                 if(position==hit){
                     System.out.print(RED + position + "  " + RESET);
