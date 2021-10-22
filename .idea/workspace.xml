@@ -11,7 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdaShip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdaShip.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" afterDir="false" />
     </list>
@@ -52,11 +55,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/adaship" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -107,7 +112,7 @@
       <workItem from="1634223838375" duration="16062000" />
       <workItem from="1634304648382" duration="79244000" />
       <workItem from="1634547887866" duration="16757000" />
-      <workItem from="1634631458374" duration="20806000" />
+      <workItem from="1634631458374" duration="56778000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -228,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634722425469</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Column changed to A-Z for shot">
+      <created>1634722926715</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1634722926715</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +275,8 @@
     <MESSAGE value="Removed display of computer board" />
     <MESSAGE value="Indexing error fixed" />
     <MESSAGE value="Column changed to A-Z" />
-    <option name="LAST_COMMIT_MESSAGE" value="Column changed to A-Z" />
+    <MESSAGE value="Column changed to A-Z for shot" />
+    <MESSAGE value="Duplicated Code Extracted into Method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Duplicated Code Extracted into Method" />
   </component>
 </project>

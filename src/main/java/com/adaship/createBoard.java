@@ -42,15 +42,15 @@ public class createBoard {
             }
             for(int col = 0; col < gameBoardWidth ; col++){
                 char position = gameboard[row][col];
-                    if (position==ship){
-                        System.out.print(GREEN + position + "  " + RESET);
-                    }else if(position==hit){
-                        System.out.print(RED + position + "  " + RESET);
-                    }else if(position==miss){
-                        System.out.print(position + "  " + RESET);
-                    }
-                    else{
-                        System.out.print(BLUE + water + "  " + RESET);
+                if (position==ship){
+                    System.out.print(GREEN + position + "  " + RESET);
+                }else if(position==hit){
+                    System.out.print(RED + position + "  " + RESET);
+                }else if(position==miss){
+                    System.out.print(position + "  " + RESET);
+                }
+                else{
+                    System.out.print(BLUE + water + "  " + RESET);
                 }
             }
             System.out.println();
