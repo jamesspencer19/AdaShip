@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class AdaShipMenu {
-    public static void menu() throws IOException {
+    public static void menu() {
         Scanner sc = new Scanner(System.in);
         System.out.println("⛵-------------- AdaShip --------------⛵");
         System.out.println("              |    |    |                 \n" +
@@ -17,7 +17,7 @@ public class AdaShipMenu {
                 "    ^^^^      ^^^^     ^^^    ^^\n" +
                 "         ^^^^      ^^^");
         System.out.println("Menu: \n" + "1. One player v computer game\n" + "2. Quit\n");
-        int answer = sc.nextInt();
+        int answer = validation.intValidation();
         switch (answer){
             case 1:{
                 gamelogic.playerAgainstComputer(computer.computerPlayer(), player.playerPlaceShips());

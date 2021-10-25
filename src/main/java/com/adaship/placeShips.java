@@ -8,17 +8,9 @@ public class placeShips {
     public static char ship = configReader.getShip();
 
     public static char[][] placeShipsArray(char[][] gameboard, int[] coordinates, char direction, int shipsize) {
-        int row = coordinates[0];
-        int col = coordinates[1];
-        if (direction == 'U') {
-            row = row+1;
-        } else if (direction == 'D') {
-            row = row - 1;
-        } else if (direction == 'L') {
-            col = col+1;
-        } else if (direction == 'R') {
-            col = col-1;
-        }
+        validation.coordValidation(coordinates,direction);
+        int row = validation.getRow();
+        int col = validation.getCol();
         int i = shipsize;
         while (i > 0) {
             if (direction == 'U') {

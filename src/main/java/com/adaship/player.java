@@ -18,23 +18,23 @@ public class player {
 
     public static char[][] playerPlaceShips() {
         int[] shipsizes = {carrier, battleship, submarine, destroyer, patrol};
-        String[] shipnames = {"Carrier", "Battleships", "Submarine", "Destroyer", "Patrol"};
+        String[] shipnames = {"Carrier", "Battleship", "Submarine", "Destroyer", "Patrol"};
         playerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
+        createBoard.printGameBoard(playerGameboard);
         boolean notcomplete = true;
-        int[] shipsizeCOPY = shipsizes;
-        boolean[] placedArray = new boolean[shipsizeCOPY.length];
-        for (int i = 0; i < shipsizeCOPY.length; i++) {
+        boolean[] placedArray = new boolean[shipsizes.length];
+        for (int i = 0; i < shipsizes.length; i++) {
             placedArray[i] = false;
         }
         while (notcomplete) {
             System.out.println("0. Automatically place ships");
             for (int i = 0; i < placedArray.length; i++) {
                 if (!placedArray[i]) {
-                    System.out.println((i + 1) + ". Ship size: " + shipsizeCOPY[i]);
+                    System.out.println((i + 1) + ". Place ship " + shipnames[i] + ", Size: " + shipsizes[i]);
                 }
             }
             System.out.println("Select a ship to place: ");
-            int shipchoice = sc.nextInt();
+            int shipchoice = validation.intValidation();
             boolean repeat = true;
             while (repeat) {
                 if (shipchoice == 0) {
@@ -42,8 +42,8 @@ public class player {
                         boolean repeat2 = true;
                         while (repeat2) {
                             if (!placedArray[i]) {
-                                if (randomGenerator.validateLocation(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizeCOPY[i])) {
-                                    placeShips.placeShipsArray(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizeCOPY[i]);
+                                if (randomGenerator.validateLocation(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i])) {
+                                    placeShips.placeShipsArray(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i]);
                                     randomGenerator.randomiser();
                                     placedArray[i] = true;
                                     repeat2 = false;
@@ -52,20 +52,19 @@ public class player {
                                     placedArray[i] = false;
                                     repeat2 = true;
                                 }
-                            }else{
-                                repeat2=false;
+                            } else {
+                                repeat2 = false;
                             }
                         }
                     }
-                    repeat=false;
-                }
-                else if (shipchoice > 0) {
+                    repeat = false;
+                } else if (shipchoice > 0) {
                     shipchoice = shipchoice - 1;
-                    System.out.println("Place Ship, Size: " + shipsizeCOPY[shipchoice] + " Enter Row Co-Ordinates: ");
-                    int row = sc.nextInt();
+                    System.out.println("Place Ship, Size: " + shipsizes[shipchoice] + " Enter Row Co-Ordinates: ");
+                    int row = validation.intValidation();
                     row = row - 1;
-                    System.out.println("Place Ship, Size: " + shipsizeCOPY[shipchoice] + " Enter Column Co-Ordinates (A-Z): ");
-                    char charcol = Character.toUpperCase(sc.next().charAt(0));
+                    System.out.println("Place Ship, Size: " + shipsizes[shipchoice] + " Enter Column Co-Ordinates (A-Z): ");
+                    char charcol = validation.charValidation();
                     int col = 0;
                     for (int b = 0; b < alphabet.length; b++) {
                         if (alphabet[b] == charcol) {
@@ -76,8 +75,8 @@ public class player {
                     System.out.println("Enter the direction of the ship e.g (U,D,L,R): ");
                     char direction = Character.toUpperCase(sc.next().charAt(0));
                     if (direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R') {
-                        if (randomGenerator.validateLocation(playerGameboard, coordinates, direction, shipsizeCOPY[shipchoice])) {
-                            placeShips.placeShipsArray(playerGameboard, coordinates, direction, shipsizeCOPY[shipchoice]);
+                        if (randomGenerator.validateLocation(playerGameboard, coordinates, direction, shipsizes[shipchoice])) {
+                            placeShips.placeShipsArray(playerGameboard, coordinates, direction, shipsizes[shipchoice]);
                             createBoard.printGameBoard(playerGameboard);
                             placedArray[shipchoice] = true;
                             repeat = false;
@@ -89,9 +88,10 @@ public class player {
                 }
             }
             notcomplete = false;
-            for (int i = 0; i < placedArray.length; i++) {
-                if (!placedArray[i]) {
+            for (boolean b : placedArray) {
+                if (!b) {
                     notcomplete = true;
+                    break;
                 }
             }
         }
@@ -103,10 +103,10 @@ public class player {
 
     public static void playerShot() {
         System.out.println("Enter Row Co-Ordinates for Torpedo Shot: ");
-        int row = sc.nextInt() - 1;
-        System.out.println("Enter Column Co-Ordinates for Torpedo Shot (A-Z): ");
-        char charcol = Character.toUpperCase(sc.next().charAt(0));
+        int row = validation.intValidation() - 1;
         int col = 0;
+        System.out.println("Enter Column Co-Ordinates for Torpedo Shot (A-Z): ");
+        char charcol = validation.charValidation();
         for (int b = 0; b < alphabet.length; b++) {
             if (alphabet[b] == charcol) {
                 col = b;

@@ -3,9 +3,7 @@ package com.adaship;
 public class gamelogic {
     public static void guessAgainstTarget(char [][] gameboard,int[] coordinates){
         int row = coordinates[0];
-        System.out.println("Row: " + row);
         int col = coordinates[1];
-        System.out.println("Col: " + col);
         if (gameboard[row][col] == 'S'){
             gameboard[row][col] = configReader.getHit();
             System.out.println("HIT");
@@ -29,19 +27,19 @@ public class gamelogic {
     }
 
     public static void playerAgainstComputer(char [][] computergameboard, char[][]playergameboard){
-        String turn = "player";
+        String turn = "Player Turn";
         while(checkGameOver(computergameboard) || !checkGameOver(playergameboard)){
-            if (turn.equals("player")){
+            if (turn.equals("Player Turn")){
                 player.playerShot();
                 guessAgainstTarget(computergameboard,player.getPlayercoordinates());
                 createBoard.printTargetBoard(computergameboard);
-                turn = "computer";
+                turn = "Computer Turn";
                 System.out.println(turn);
-            }else if(turn.equals("computer")){
+            }else if(turn.equals("Computer Turn")){
                 randomGenerator.randomiser();
                 guessAgainstTarget(playergameboard,randomGenerator.getRandCoordinates());
                 createBoard.printGameBoard(playergameboard);
-                turn = "player";
+                turn = "Player Turn";
                 System.out.println(turn);
             }
         }
