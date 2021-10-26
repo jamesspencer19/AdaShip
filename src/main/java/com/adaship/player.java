@@ -10,13 +10,13 @@ public class player {
     public static int submarine = configReader.getSubmarine();
     public static int destroyer = configReader.getDestroyer();
     public static int patrol = configReader.getPatrol();
-    public static char[][] targetboard;
-    public static char[][] playerGameboard;
+    public static int[][] targetboard;
+    public static int[][] playerGameboard;
     public static int[] playercoordinates;
     public static Scanner sc = new Scanner(System.in);
 
 
-    public static char[][] playerPlaceShips() {
+    public static int[][] playerPlaceShips() {
         int[] shipsizes = {carrier, battleship, submarine, destroyer, patrol};
         String[] shipnames = {"Carrier", "Battleship", "Submarine", "Destroyer", "Patrol"};
         playerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
@@ -43,7 +43,7 @@ public class player {
                         while (repeat2) {
                             if (!placedArray[i]) {
                                 if (randomGenerator.validateLocation(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i])) {
-                                    placeShips.placeShipsArray(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i]);
+                                    placeShips.placeShipsArray(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipnames[i],shipsizes[i]);
                                     randomGenerator.randomiser();
                                     placedArray[i] = true;
                                     repeat2 = false;
@@ -76,7 +76,7 @@ public class player {
                     char direction = Character.toUpperCase(sc.next().charAt(0));
                     if (direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R') {
                         if (randomGenerator.validateLocation(playerGameboard, coordinates, direction, shipsizes[shipchoice])) {
-                            placeShips.placeShipsArray(playerGameboard, coordinates, direction, shipsizes[shipchoice]);
+                            placeShips.placeShipsArray(playerGameboard, coordinates, direction, shipnames[shipchoice],shipsizes[shipchoice]);
                             createBoard.printGameBoard(playerGameboard);
                             placedArray[shipchoice] = true;
                             repeat = false;

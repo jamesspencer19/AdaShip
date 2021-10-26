@@ -10,9 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/adaship/validation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" afterDir="false" />
@@ -124,7 +124,7 @@
       <workItem from="1634304648382" duration="79244000" />
       <workItem from="1634547887866" duration="16757000" />
       <workItem from="1634631458374" duration="58306000" />
-      <workItem from="1635152684536" duration="8175000" />
+      <workItem from="1635152684536" duration="33328000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -259,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634913875226</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="V1: Input Validation and Clean-Up">
+      <created>1635161553202</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1635161553202</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +304,7 @@
     <MESSAGE value="Column changed to A-Z for shot" />
     <MESSAGE value="Duplicated Code Extracted into Method" />
     <MESSAGE value="V1 Working" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1 Working" />
+    <MESSAGE value="V1: Input Validation and Clean-Up" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1: Input Validation and Clean-Up" />
   </component>
 </project>

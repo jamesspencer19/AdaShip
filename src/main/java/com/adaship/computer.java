@@ -10,15 +10,16 @@ public class computer {
     public static int patrol = configReader.getPatrol();
 
 
-    public static char[][] computerPlayer() {
+    public static int[][] computerPlayer() {
         randomGenerator.randomiser();
         int[] shipsizes = {carrier, battleship, submarine, destroyer, patrol};
-        char[][] computerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
+        String[] shipnames = {"Carrier", "Battleship", "Submarine", "Destroyer", "Patrol"};
+        int[][] computerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
         for (int i = 0; i < shipsizes.length; i++) {
             boolean repeat = true;
             while (repeat) {
                 if (randomGenerator.validateLocation(computerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i])) {
-                    placeShips.placeShipsArray(computerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i]);
+                    placeShips.placeShipsArray(computerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipnames[i],shipsizes[i]);
                     randomGenerator.randomiser();
                     repeat = false;
                 } else {

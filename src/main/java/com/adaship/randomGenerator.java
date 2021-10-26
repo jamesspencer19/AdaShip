@@ -18,7 +18,7 @@ public class randomGenerator {
         randDirection = directionArray[rand.nextInt(directionArray.length)];
     }
 
-    public static boolean validateLocation(char[][] gameboard, int[] coordinates, char direction, int shipsize){
+    public static boolean validateLocation(int[][] gameboard, int[] coordinates, char direction, int shipsize){
         validation.coordValidation(coordinates,direction);
         int row = validation.getRow();
         int col = validation.getCol();
@@ -27,22 +27,22 @@ public class randomGenerator {
         try {
             while (i > 0) {
                 if (direction == 'U') {
-                    if (gameboard[row - i][col] != water) {
+                    if (gameboard[row - i][col] != 0) {
                         flag = false;
                         break;
                     }
                 } else if (direction == 'D') {
-                    if (gameboard[row + i][col] != water) {
+                    if (gameboard[row + i][col] != 0) {
                         flag = false;
                         break;
                     }
                 } else if (direction == 'L') {
-                    if (gameboard[row][col - i] != water) {
+                    if (gameboard[row][col - i] != 0) {
                         flag = false;
                         break;
                     }
                 } else if (direction == 'R') {
-                    if (gameboard[row][col + i] != water) {
+                    if (gameboard[row][col + i] != 0) {
                         flag = false;
                         break;
                     }

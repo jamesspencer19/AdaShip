@@ -17,15 +17,15 @@ public class createBoard {
     public static final String GREEN = "\u001B[32m";
 
 
-    public static char [][] createGameBoard(int boardLength, int boardWidth, char water){
-        char[][] gameboard = new char[boardLength][boardWidth];
-        for(char[] row: gameboard){
-            Arrays.fill(row, water);
+    public static int [][] createGameBoard(int boardLength, int boardWidth, char water){
+        int[][] gameboard = new int[boardLength][boardWidth];
+        for(int[] row: gameboard){
+            Arrays.fill(row, 0);
         }
         return gameboard;
     }
 
-    public static void printGameBoard(char[][] gameboard){
+    public static void printGameBoard(int[][] gameboard){
         System.out.println("-----------GAME BOARD------------");
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
@@ -41,13 +41,13 @@ public class createBoard {
                 System.out.print(row + 1 + "  ");
             }
             for(int col = 0; col < gameBoardWidth ; col++){
-                char position = gameboard[row][col];
-                if (position==ship){
-                    System.out.print(GREEN + position + "  " + RESET);
-                }else if(position==hit){
-                    System.out.print(RED + position + "  " + RESET);
-                }else if(position==miss){
-                    System.out.print(position + "  " + RESET);
+                int position = gameboard[row][col];
+                if (position>0){
+                    System.out.print(GREEN + ship + "  " + RESET);
+                }else if(position==-1){
+                    System.out.print(RED + hit + "  " + RESET);
+                }else if(position==-2){
+                    System.out.print(miss + "  " + RESET);
                 }
                 else{
                     System.out.print(BLUE + water + "  " + RESET);
@@ -58,7 +58,7 @@ public class createBoard {
         System.out.println();
     }
 
-    public static void printTargetBoard(char[][] gameboard){
+    public static void printTargetBoard(int[][] gameboard){
         System.out.println("----------TARGET BOARD-----------");
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
@@ -74,11 +74,11 @@ public class createBoard {
                 System.out.print(row + 1 + "  ");
             }
             for(int col = 0; col < gameBoardWidth; col++){
-                char position = gameboard[row][col];
-                if(position==hit){
-                    System.out.print(RED + position + "  " + RESET);
-                }else if(position==miss){
-                    System.out.print(position + "  " + RESET);
+                int position = gameboard[row][col];
+                if(position==-1){
+                    System.out.print(RED + hit + "  " + RESET);
+                }else if(position==-2){
+                    System.out.print(miss + "  " + RESET);
                 }
                 else{
                     System.out.print(BLUE + water + "  " + RESET);
