@@ -8,15 +8,17 @@ public class gamelogic {
     public static int destroyer = configReader.getDestroyer();
     public static int patrol = configReader.getPatrol();
 
-    public static void guessAgainstTarget(int[][] gameboard, int[] coordinates) {
+    public static boolean guessAgainstTarget(int[][] gameboard, int[] coordinates) {
         int row = coordinates[0];
         int col = coordinates[1];
         if (gameboard[row][col] > 0) {
             gameboard[row][col] = -1;
             System.out.println("HIT");
+            return true;
         } else {
             gameboard[row][col] = -2;
             System.out.println("MISS");
+            return false;
         }
     }
 
@@ -36,19 +38,33 @@ public class gamelogic {
 
     public static void playerAgainstComputer(int[][] computergameboard, int[][] playergameboard) {
         String turn = "Player Turn";
+        int phits = 0;
+        int pmiss = 0;
+        int chits = 0;
+        int cmiss = 0;
         while (checkGameOver(computergameboard) || !checkGameOver(playergameboard)) {
             if (turn.equals("Player Turn")) {
                 player.playerShot();
-                guessAgainstTarget(computergameboard, player.getPlayercoordinates());
+                if (guessAgainstTarget(computergameboard, player.getPlayercoordinates())){
+                    phits++;
+                }else {
+                    pmiss++;
+                }
                 createBoard.printTargetBoard(computergameboard);
                 sunkShip(computergameboard);
+                System.out.println("Player Hits: " + phits + "\nPlayer Misses: " + pmiss);
                 turn = "Computer Turn";
                 System.out.println(turn);
             } else if (turn.equals("Computer Turn")) {
                 randomGenerator.randomiser();
-                guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates());
+                if (guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates())){
+                    chits++;
+                }else {
+                    cmiss++;
+                }
                 createBoard.printGameBoard(playergameboard);
                 sunkShip(playergameboard);
+                System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
                 turn = "Player Turn";
                 System.out.println(turn);
             }
