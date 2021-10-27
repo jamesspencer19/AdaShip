@@ -18,7 +18,7 @@ public class computer {
         for (int i = 0; i < shipsizes.length; i++) {
             boolean repeat = true;
             while (repeat) {
-                if (randomGenerator.validateLocation(computerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i])) {
+                if (validation.validateLocation(computerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i])) {
                     placeShips.placeShipsArray(computerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipnames[i],shipsizes[i]);
                     randomGenerator.randomiser();
                     repeat = false;

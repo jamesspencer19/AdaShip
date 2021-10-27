@@ -18,42 +18,6 @@ public class randomGenerator {
         randDirection = directionArray[rand.nextInt(directionArray.length)];
     }
 
-    public static boolean validateLocation(int[][] gameboard, int[] coordinates, char direction, int shipsize){
-        validation.coordValidation(coordinates,direction);
-        int row = validation.getRow();
-        int col = validation.getCol();
-        int i = shipsize;
-        boolean flag = true;
-        try {
-            while (i > 0) {
-                if (direction == 'U') {
-                    if (gameboard[row - i][col] != 0) {
-                        flag = false;
-                        break;
-                    }
-                } else if (direction == 'D') {
-                    if (gameboard[row + i][col] != 0) {
-                        flag = false;
-                        break;
-                    }
-                } else if (direction == 'L') {
-                    if (gameboard[row][col - i] != 0) {
-                        flag = false;
-                        break;
-                    }
-                } else if (direction == 'R') {
-                    if (gameboard[row][col + i] != 0) {
-                        flag = false;
-                        break;
-                    }
-                }
-                i--;
-            }
-        }catch (ArrayIndexOutOfBoundsException exception){
-            flag = false;
-        }
-        return flag;
-    }
 
     public static int[] getRandCoordinates() {
         return randCoordinates;

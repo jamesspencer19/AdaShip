@@ -44,17 +44,26 @@ public class gamelogic {
         int cmiss = 0;
         while (checkGameOver(computergameboard) || !checkGameOver(playergameboard)) {
             if (turn.equals("Player Turn")) {
-                player.playerShot();
-                if (guessAgainstTarget(computergameboard, player.getPlayercoordinates())){
-                    phits++;
-                }else {
-                    pmiss++;
+                boolean repeat = true;
+                while (repeat){
+                    int [] playercoordinates = player.playerShot();
+                    if (validation.validateTorpedo(computergameboard,playercoordinates)){
+                        if (guessAgainstTarget(computergameboard, playercoordinates)){
+                            phits++;
+                        }else {
+                            pmiss++;
+                        }
+                        createBoard.printTargetBoard(computergameboard);
+                        sunkShip(computergameboard);
+                        System.out.println("Player Hits: " + phits + "\nPlayer Misses: " + pmiss);
+                        turn = "Computer Turn";
+                        System.out.println(turn);
+                        repeat=false;
+                    }else{
+                        System.out.println("Invalid Torpedo Location");
+                        repeat=true;
+                    }
                 }
-                createBoard.printTargetBoard(computergameboard);
-                sunkShip(computergameboard);
-                System.out.println("Player Hits: " + phits + "\nPlayer Misses: " + pmiss);
-                turn = "Computer Turn";
-                System.out.println(turn);
             } else if (turn.equals("Computer Turn")) {
                 randomGenerator.randomiser();
                 if (guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates())){

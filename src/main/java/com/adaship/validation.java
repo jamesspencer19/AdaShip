@@ -43,6 +43,57 @@ public class validation {
         }
     }
 
+    public static boolean validateLocation(int[][] gameboard, int[] coordinates, char direction, int shipsize){
+        validation.coordValidation(coordinates,direction);
+        int row = validation.getRow();
+        int col = validation.getCol();
+        int i = shipsize;
+        boolean flag = true;
+        try {
+            while (i > 0) {
+                if (direction == 'U') {
+                    if (gameboard[row - i][col] != 0) {
+                        flag = false;
+                        break;
+                    }
+                } else if (direction == 'D') {
+                    if (gameboard[row + i][col] != 0) {
+                        flag = false;
+                        break;
+                    }
+                } else if (direction == 'L') {
+                    if (gameboard[row][col - i] != 0) {
+                        flag = false;
+                        break;
+                    }
+                } else if (direction == 'R') {
+                    if (gameboard[row][col + i] != 0) {
+                        flag = false;
+                        break;
+                    }
+                }
+                i--;
+            }
+        }catch (ArrayIndexOutOfBoundsException exception){
+            flag = false;
+        }
+        return flag;
+    }
+
+    public static boolean validateTorpedo(int[][] gameboard, int[]coordinates){
+        int gameBoardLength = gameboard.length;
+        int gameBoardWidth = gameboard[0].length;
+        row = coordinates[0];
+        col = coordinates[1];
+        int val = gameboard[row][col];
+        if(val == 0 && row < gameBoardLength && col < gameBoardWidth){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public static int getRow() {
         return row;
     }

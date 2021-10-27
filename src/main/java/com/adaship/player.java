@@ -42,7 +42,7 @@ public class player {
                         boolean repeat2 = true;
                         while (repeat2) {
                             if (!placedArray[i]) {
-                                if (randomGenerator.validateLocation(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i])) {
+                                if (validation.validateLocation(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i])) {
                                     placeShips.placeShipsArray(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipnames[i],shipsizes[i]);
                                     randomGenerator.randomiser();
                                     placedArray[i] = true;
@@ -75,7 +75,7 @@ public class player {
                     System.out.println("Enter the direction of the ship e.g (U,D,L,R): ");
                     char direction = Character.toUpperCase(sc.next().charAt(0));
                     if (direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R') {
-                        if (randomGenerator.validateLocation(playerGameboard, coordinates, direction, shipsizes[shipchoice])) {
+                        if (validation.validateLocation(playerGameboard, coordinates, direction, shipsizes[shipchoice])) {
                             placeShips.placeShipsArray(playerGameboard, coordinates, direction, shipnames[shipchoice],shipsizes[shipchoice]);
                             createBoard.printGameBoard(playerGameboard);
                             placedArray[shipchoice] = true;
@@ -101,7 +101,7 @@ public class player {
         return playerGameboard;
     }
 
-    public static void playerShot() {
+    public static int[] playerShot() {
         System.out.println("Enter Row Co-Ordinates for Torpedo Shot: ");
         int row = validation.intValidation() - 1;
         int col = 0;
@@ -112,14 +112,7 @@ public class player {
                 col = b;
             }
         }
-        playercoordinates = new int[]{row, col};
+        return playercoordinates = new int[]{row, col};
     }
 
-    public static int[] getPlayercoordinates() {
-        return playercoordinates;
-    }
-
-    public static void setPlayercoordinates(int[] playercoordinates) {
-        player.playercoordinates = playercoordinates;
-    }
 }
