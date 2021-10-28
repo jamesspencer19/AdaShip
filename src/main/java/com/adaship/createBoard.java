@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 public class createBoard {
 
-    public static char [] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     public static char water = configReader.getWater();
     public static char ship = configReader.getShip();
     public static char hit = configReader.getHit();
     public static char miss = configReader.getMiss();
+    public static char[] alphabet = configReader.getAlphabet();
 
     public static final String BLUE = "\033[0;34m";    // BLUE
     public static final String RESET = "\033[0m";  // Text Reset
@@ -43,7 +43,7 @@ public class createBoard {
             for(int col = 0; col < gameBoardWidth ; col++){
                 int position = gameboard[row][col];
                 if (position>0){
-                    System.out.print(GREEN + ship + "  " + RESET);
+                    System.out.print(GREEN + position + "  " + RESET);
                 }else if(position==-1){
                     System.out.print(RED + hit + "  " + RESET);
                 }else if(position==-2){

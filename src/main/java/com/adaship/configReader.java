@@ -20,6 +20,10 @@ public class configReader {
     public static int submarine;
     public static int destroyer;
     public static int patrol;
+    public static String[] shipnames;
+    public static int[] shipsizes;
+    public static char [] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
 
     public static void readConfigJSON() throws IOException {
         BufferedReader br=new BufferedReader(new FileReader("config.json"));
@@ -47,92 +51,43 @@ public class configReader {
             submarine = jsonArray.get(i).getAsJsonObject().get("submarine").getAsInt();
             patrol = jsonArray.get(i).getAsJsonObject().get("patrol").getAsInt();
         }
+        shipnames = new String[]{"Carrier", "Battleship", "Submarine", "Destroyer", "Patrol"};
+        shipsizes = new int[]{carrier, battleship, submarine, destroyer, patrol};
     }
 
-    public static int getCarrier() {
-        return carrier;
+    public static String[] getShipnames() {
+        return shipnames;
     }
 
-    public static void setCarrier(int carrier) {
-        configReader.carrier = carrier;
+    public static int[] getShipsizes() {
+        return shipsizes;
     }
 
-    public static int getBattleship() {
-        return battleship;
-    }
-
-    public static void setBattleship(int battleship) {
-        configReader.battleship = battleship;
-    }
-
-    public static int getSubmarine() {
-        return submarine;
-    }
-
-    public static void setSubmarine(int submarine) {
-        configReader.submarine = submarine;
-    }
-
-    public static int getDestroyer() {
-        return destroyer;
-    }
-
-    public static void setDestroyer(int destroyer) {
-        configReader.destroyer = destroyer;
-    }
-
-    public static int getPatrol() {
-        return patrol;
-    }
-
-    public static void setPatrol(int patrol) {
-        configReader.patrol = patrol;
-    }
     public static char getShip() {
         return ship;
-    }
-
-    public static void setShip(char ship) {
-        configReader.ship = ship;
     }
 
     public static char getHit() {
         return hit;
     }
 
-    public static void setHit(char hit) {
-        configReader.hit = hit;
-    }
-
     public static char getMiss() {
         return miss;
-    }
-
-    public static void setMiss(char miss) {
-        configReader.miss = miss;
     }
 
     public static int getBoardLength() {
         return boardLength;
     }
 
-    public static void setBoardLength(int boardLength) {
-        configReader.boardLength = boardLength;
-    }
-
     public static int getBoardWidth() {
         return boardWidth;
-    }
-
-    public static void setBoardWidth(int boardWidth) {
-        configReader.boardWidth = boardWidth;
     }
 
     public static char getWater() {
         return water;
     }
 
-    public static void setWater(char water) {
-        configReader.water = water;
+    public static char[] getAlphabet() {
+        return alphabet;
     }
 }

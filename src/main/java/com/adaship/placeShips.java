@@ -1,17 +1,10 @@
 package com.adaship;
 
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class placeShips {
 
-    public static char ship = configReader.getShip();
-
-    public static int[][] placeShipsArray(int[][] gameboard, int[] coordinates, char direction, String shipname, int shipsize) {
+    public static void placeShipsArray(int[][] gameboard, int[] coordinates, char direction, String shipname, int shipsize) {
         validation.coordValidation(coordinates,direction);
-        String[] shipnames = {"Carrier", "Battleship", "Submarine", "Destroyer", "Patrol"};
+        String[] shipnames = configReader.getShipnames();
         int row = validation.getRow();
         int col = validation.getCol();
         int i = shipsize;
@@ -34,6 +27,5 @@ public class placeShips {
             }
             i--;
         }
-        return gameboard;
     }
 }

@@ -1,12 +1,10 @@
 package com.adaship;
 
-public class gamelogic {
+import java.util.Scanner;
 
-    public static int carrier = configReader.getCarrier();
-    public static int battleship = configReader.getBattleship();
-    public static int submarine = configReader.getSubmarine();
-    public static int destroyer = configReader.getDestroyer();
-    public static int patrol = configReader.getPatrol();
+public class gamelogic {
+    public static Scanner sc = new Scanner(System.in);
+
 
     public static boolean guessAgainstTarget(int[][] gameboard, int[] coordinates) {
         int row = coordinates[0];
@@ -56,9 +54,21 @@ public class gamelogic {
                         createBoard.printTargetBoard(computergameboard);
                         sunkShip(computergameboard);
                         System.out.println("Player Hits: " + phits + "\nPlayer Misses: " + pmiss);
-                        turn = "Computer Turn";
-                        System.out.println(turn);
-                        repeat=false;
+                        boolean repeat2 =true;
+                        while (repeat2){
+                            System.out.println("Enter 1 to switch to Computer Turn");
+                            int switchturn = validation.intValidation();
+                            if (switchturn == 1){
+                                turn = "Computer Turn";
+                                System.out.println(turn);
+                                repeat2 =false;
+                                repeat=false;
+                            }
+                            else{
+                                System.out.println("Invalid Option");
+                                repeat2 = true;
+                            }
+                        }
                     }else{
                         System.out.println("Invalid Torpedo Location");
                         repeat=true;
@@ -74,8 +84,20 @@ public class gamelogic {
                 createBoard.printGameBoard(playergameboard);
                 sunkShip(playergameboard);
                 System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
-                turn = "Player Turn";
-                System.out.println(turn);
+                boolean repeat2 =true;
+                while (repeat2){
+                    System.out.println("Enter 1 to switch to Player Turn");
+                    int switchturn = validation.intValidation();
+                    if (switchturn == 1){
+                        turn = "Player Turn";
+                        System.out.println(turn);
+                        repeat2 =false;
+                    }
+                    else{
+                        System.out.println("Invalid Option");
+                        repeat2 = true;
+                    }
+                }
             }
         }
         if (checkGameOver(computergameboard)) {
@@ -86,8 +108,8 @@ public class gamelogic {
     }
 
     public static void sunkShip(int[][] gameboard) {
-        int[] shipsizes = {carrier, battleship, submarine, destroyer, patrol};
-        String[] shipnames = {"Carrier", "Battleship", "Submarine", "Destroyer", "Patrol"};
+        int[] shipsizes = configReader.getShipsizes();
+        String[] shipnames = configReader.getShipnames();
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
         int i = shipsizes.length;

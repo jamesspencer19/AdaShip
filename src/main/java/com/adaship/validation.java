@@ -98,15 +98,8 @@ public class validation {
         return row;
     }
 
-    public static void setRow(int row) {
-        validation.row = row;
-    }
-
     public static int getCol() {
         return col;
     }
 
-    public static void setCol(int col) {
-        validation.col = col;
-    }
 }

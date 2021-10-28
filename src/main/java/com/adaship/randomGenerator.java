@@ -1,12 +1,11 @@
 package com.adaship;
-import java.util.Arrays;
+
 import java.util.Random;
 
 public class randomGenerator {
     public static Random rand = new Random();
     public static int [] randCoordinates = new int[2];
     public static char randDirection;
-    public static char water = configReader.getWater();
 
 
     public static void randomiser(){
@@ -23,15 +22,8 @@ public class randomGenerator {
         return randCoordinates;
     }
 
-    public static void setRandCoordinates(int[] randCoordinates) {
-        randomGenerator.randCoordinates = randCoordinates;
-    }
-
     public static char getRandDirection() {
         return randDirection;
     }
 
-    public static void setRandDirection(char randDirection) {
-        randomGenerator.randDirection = randDirection;
-    }
 }
