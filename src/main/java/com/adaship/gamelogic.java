@@ -185,6 +185,85 @@ public class gamelogic {
                 }
             }
         }
+        if (checkGameOver(player1gameboard)) {
+            System.out.println("PLAYER 2 WINS!");
+        } else if (checkGameOver(player2gameboard)) {
+            System.out.println("PLAYER 1 WINS!");
+        }
+    }
+
+    public static void salvoPlayerComputer(int[][] computergameboard, int[][] playergameboard) {
+        String turn = "Player Turn";
+        int phits = 0;
+        int pmiss = 0;
+        int chits = 0;
+        int cmiss = 0;
+        while (checkGameOver(computergameboard) || !checkGameOver(playergameboard)) {
+            if (turn.equals("Player Turn")) {
+                boolean repeat = true;
+                int playershipsleft = shipsleft(playergameboard);
+                while (repeat) {
+                    for (int sl = 0; sl < playershipsleft; sl++) {
+                        int[] playercoordinates = player.playerShot();
+                        if (validation.validateTorpedo(computergameboard, playercoordinates)) {
+                            if (guessAgainstTarget(computergameboard, playercoordinates)) {
+                                phits++;
+                            } else {
+                                pmiss++;
+                            }
+                            createBoard.printTargetBoard(computergameboard);
+                            sunkShip(computergameboard);
+                            System.out.println("Player Hits: " + phits + "\nPlayer Misses: " + pmiss);
+                        }
+                    }
+                    boolean repeat2 = true;
+                    while (repeat2) {
+                        System.out.println("Enter 1 to switch to Computer Turn");
+                        int switchturn = validation.intValidation();
+                        if (switchturn == 1) {
+                            turn = "Computer Turn";
+                            System.out.println(turn);
+                            repeat2 = false;
+                        } else {
+                            System.out.println("Invalid Option");
+                            repeat2 = true;
+                        }
+                    }
+                    repeat = false;
+                }
+            } else if (turn.equals("Computer Turn")) {
+                int computershipsleft = shipsleft(computergameboard);
+                for (int sl = 0; sl < computershipsleft; sl++){
+                    randomGenerator.randomiser();
+                    if (guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates())) {
+                        chits++;
+                    } else {
+                        cmiss++;
+                    }
+                    createBoard.printGameBoard(playergameboard);
+                    sunkShip(playergameboard);
+                    System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
+                }
+                boolean repeat2 = true;
+                while (repeat2) {
+                    System.out.println("Enter 1 to switch to Player Turn");
+                    int switchturn = validation.intValidation();
+                    if (switchturn == 1) {
+                        turn = "Player Turn";
+                        System.out.println(turn);
+                        repeat2 = false;
+                    } else {
+                        System.out.println("Invalid Option");
+                        repeat2 = true;
+                    }
+                }
+            }
+        }
+        if (checkGameOver(computergameboard)) {
+            System.out.println("PLAYER WINS!");
+        } else if (checkGameOver(playergameboard)) {
+            System.out.println("COMPUTER WINS!");
+        }
     }
 
     public static void sunkShip(int[][] gameboard) {
@@ -192,6 +271,7 @@ public class gamelogic {
         String[] shipnames = configReader.getShipnames();
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
+        int shipsleft = shipsizes.length;
         int i = shipsizes.length;
         while (i > 0) {
             boolean ship = true;
@@ -207,6 +287,31 @@ public class gamelogic {
             }
             i--;
         }
+    }
+
+    public static int shipsleft(int[][] gameboard) {
+        int[] shipsizes = configReader.getShipsizes();
+        String[] shipnames = configReader.getShipnames();
+        int gameBoardLength = gameboard.length;
+        int gameBoardWidth = gameboard[0].length;
+        int shipsleft = shipsizes.length;
+        int i = shipsizes.length;
+        while (i > 0) {
+            boolean ship = true;
+            for (int b = 0; b < gameBoardLength; b++) {
+                for (int j = 0; j < gameBoardWidth; j++) {
+                    if (gameboard[b][j] == i) {
+                        ship = false;
+                    }
+                }
+            }
+            if (ship) {
+                System.out.println("Ship: " + shipnames[i - 1] + " has been sunk!");
+                shipsleft--;
+            }
+            i--;
+        }
+        return shipsleft;
     }
 
 }
