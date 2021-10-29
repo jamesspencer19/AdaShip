@@ -233,7 +233,7 @@ public class gamelogic {
                 }
             } else if (turn.equals("Computer Turn")) {
                 int computershipsleft = shipsleft(computergameboard);
-                for (int sl = 0; sl < computershipsleft; sl++){
+                for (int sl = 0; sl < computershipsleft; sl++) {
                     randomGenerator.randomiser();
                     if (guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates())) {
                         chits++;
@@ -263,6 +263,89 @@ public class gamelogic {
             System.out.println("PLAYER WINS!");
         } else if (checkGameOver(playergameboard)) {
             System.out.println("COMPUTER WINS!");
+        }
+    }
+
+    public static void salvoPlayerPlayer(int[][] player1gameboard, int[][] player2gameboard) {
+        String turn = "Player 1 Turn";
+        int p1hits = 0;
+        int p1miss = 0;
+        int p2hits = 0;
+        int p2miss = 0;
+        while (checkGameOver(player1gameboard) || !checkGameOver(player2gameboard)) {
+            if (turn.equals("Player 1 Turn")) {
+                System.out.println(turn);
+                boolean repeat = true;
+                while (repeat) {
+                    int player1shipsleft = shipsleft(player1gameboard);
+                    for (int sl = 0; sl < player1shipsleft; sl++) {
+                        int[] playercoordinates = player.playerShot();
+                        if (validation.validateTorpedo(player2gameboard, playercoordinates)) {
+                            if (guessAgainstTarget(player2gameboard, playercoordinates)) {
+                                p1hits++;
+                            } else {
+                                p1miss++;
+                            }
+                            createBoard.printTargetBoard(player2gameboard);
+                            sunkShip(player2gameboard);
+                            System.out.println("Player Hits: " + p1hits + "\nPlayer Misses: " + p1miss);
+                        }
+                    }
+                    boolean repeat2 = true;
+                    while (repeat2) {
+                        System.out.println("Enter 1 to switch to Player 2 Turn");
+                        int switchturn = validation.intValidation();
+                        if (switchturn == 1) {
+                            turn = "Player 2 Turn";
+                            System.out.println(turn);
+                            repeat2 = false;
+                        } else {
+                            System.out.println("Invalid Option");
+                            repeat2 = true;
+                        }
+                        repeat = false;
+                    }
+                }
+            }
+            if (turn.equals("Player 2 Turn")) {
+                boolean repeat = true;
+                while (repeat) {
+                    int player2shipsleft = shipsleft(player2gameboard);
+                    for (int sl = 0; sl < player2shipsleft; sl++) {
+                        int[] playercoordinates = player.playerShot();
+                        if (validation.validateTorpedo(player1gameboard, playercoordinates)) {
+                            if (guessAgainstTarget(player1gameboard, playercoordinates)) {
+                                p2hits++;
+                            } else {
+                                p2miss++;
+                            }
+                            createBoard.printTargetBoard(player1gameboard);
+                            sunkShip(player1gameboard);
+                            System.out.println("Player Hits: " + p2hits + "\nPlayer Misses: " + p2miss);
+                        }
+                    }
+                    boolean repeat2 = true;
+                    while (repeat2) {
+                        System.out.println("Enter 1 to switch to Player 1 Turn");
+                        int switchturn = validation.intValidation();
+                        if (switchturn == 1) {
+                            turn = "Player 1 Turn";
+                            System.out.println(turn);
+                            repeat2 = false;
+                        } else {
+                            System.out.println("Invalid Option");
+                            repeat2 = true;
+                        }
+                        repeat = false;
+
+                    }
+                }
+            }
+        }
+        if (checkGameOver(player1gameboard)) {
+            System.out.println("PLAYER 2 WINS!");
+        } else if (checkGameOver(player2gameboard)) {
+            System.out.println("PLAYER 1 WINS!");
         }
     }
 

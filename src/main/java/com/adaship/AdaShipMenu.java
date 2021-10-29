@@ -15,7 +15,7 @@ public class AdaShipMenu {
                 "  ^^^^^ ^^^^^^^^^^^^^^^^^^^^^\n" +
                 "    ^^^^      ^^^^     ^^^    ^^\n" +
                 "         ^^^^      ^^^");
-        System.out.println("Menu: \n" + "1. Player vs Computer\n2. Player vs Player\n3. Player vs Computer (Salvo)\n4. Quit\n");
+        System.out.println("Menu: \n" + "1. Player vs Computer\n2. Player vs Player\n3. Player vs Computer (Salvo)\n4. Player vs Player (Salvo)\n5. Quit\n");
         int answer = validation.intValidation();
         switch (answer){
             case 1:{
@@ -30,7 +30,11 @@ public class AdaShipMenu {
                 gamelogic.salvoPlayerComputer(computer.computerPlayer(), player.playerPlaceShips(1));
             }
             break;
-            case 4: {
+            case 4:{
+                gamelogic.salvoPlayerPlayer(player.playerPlaceShips(1), player.playerPlaceShips(2));
+            }
+            break;
+            case 5: {
                 for (int i = 0; i < 25; i++) {
                     System.out.println("\n");
                 }

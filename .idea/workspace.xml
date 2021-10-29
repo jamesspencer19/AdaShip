@@ -10,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" afterDir="false" />
     </list>
@@ -119,7 +120,7 @@
       <workItem from="1634304648382" duration="79244000" />
       <workItem from="1634547887866" duration="16757000" />
       <workItem from="1634631458374" duration="58306000" />
-      <workItem from="1635152684536" duration="66655000" />
+      <workItem from="1635152684536" duration="69789000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -296,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635500002491</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="V2: PLayer vs Computer Salvo">
+      <created>1635518125886</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1635518125886</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +323,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial Git Commit" />
     <MESSAGE value="Challenge Outline ReadMe basic implementation" />
     <MESSAGE value="Config File Read&#10;Board Created using Config Values" />
     <MESSAGE value="Basic Menu Implemented" />
@@ -340,6 +347,7 @@
     <MESSAGE value="V1: Torpedo Validation" />
     <MESSAGE value="V1: All requirements met" />
     <MESSAGE value="V2: PLayer vs Player" />
-    <option name="LAST_COMMIT_MESSAGE" value="V2: PLayer vs Player" />
+    <MESSAGE value="V2: PLayer vs Computer Salvo" />
+    <option name="LAST_COMMIT_MESSAGE" value="V2: PLayer vs Computer Salvo" />
   </component>
 </project>
