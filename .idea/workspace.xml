@@ -11,15 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdaShip.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdaShip.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/configReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/configReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/createBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/placeShips.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/randomGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/validation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +124,7 @@
       <workItem from="1634304648382" duration="79244000" />
       <workItem from="1634547887866" duration="16757000" />
       <workItem from="1634631458374" duration="58306000" />
-      <workItem from="1635152684536" duration="51026000" />
+      <workItem from="1635152684536" duration="61283000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -290,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635327258833</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="V1: All requirements met">
+      <created>1635413144771</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1635413144771</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +336,7 @@
     <MESSAGE value="V1: Notify when ship has sunk" />
     <MESSAGE value="V1: Player/Computer Hits/Misses" />
     <MESSAGE value="V1: Torpedo Validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1: Torpedo Validation" />
+    <MESSAGE value="V1: All requirements met" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1: All requirements met" />
   </component>
 </project>

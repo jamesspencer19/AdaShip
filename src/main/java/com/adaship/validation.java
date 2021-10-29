@@ -86,7 +86,7 @@ public class validation {
         row = coordinates[0];
         col = coordinates[1];
         int val = gameboard[row][col];
-        if(val == 0 && row < gameBoardLength && col < gameBoardWidth){
+        if(val >= 0 && row < gameBoardLength && col < gameBoardWidth){
             return true;
         }
         else {

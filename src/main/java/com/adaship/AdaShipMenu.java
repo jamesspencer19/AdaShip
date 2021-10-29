@@ -15,14 +15,18 @@ public class AdaShipMenu {
                 "  ^^^^^ ^^^^^^^^^^^^^^^^^^^^^\n" +
                 "    ^^^^      ^^^^     ^^^    ^^\n" +
                 "         ^^^^      ^^^");
-        System.out.println("Menu: \n" + "1. One player v computer game\n" + "2. Quit\n");
+        System.out.println("Menu: \n" + "1. Player vs Computer\n2. Player vs Player\n3. Quit\n");
         int answer = validation.intValidation();
         switch (answer){
             case 1:{
-                gamelogic.playerAgainstComputer(computer.computerPlayer(), player.playerPlaceShips());
+                gamelogic.playerAgainstComputer(computer.computerPlayer(), player.playerPlaceShips(1));
             }
             break;
-            case 2: {
+            case 2:{
+                gamelogic.playerAgainstPlayer(player.playerPlaceShips(1), player.playerPlaceShips(2));
+            }
+            break;
+            case 3: {
                 for (int i = 0; i < 25; i++) {
                     System.out.println("\n");
                 }

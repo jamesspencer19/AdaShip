@@ -11,7 +11,8 @@ public class player {
     public static Scanner sc = new Scanner(System.in);
 
 
-    public static int[][] playerPlaceShips() {
+    public static int[][] playerPlaceShips(int playernum) {
+        System.out.println("Player: " + playernum + " Place Ships");
         int[] shipsizes = configReader.getShipsizes();
         String[] shipnames = configReader.getShipnames();
         playerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
@@ -34,22 +35,23 @@ public class player {
             int shipchoice = validation.intValidation();
             boolean repeat = true;
             while (repeat) {
-                if (shipchoice == -3){
+                if (shipchoice == -3) {
                     System.exit(0);
-                }
-                else if (shipchoice == -2) {
+                } else if (shipchoice == -2) {
                     playerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
                     createBoard.printGameBoard(playerGameboard);
                     Arrays.fill(placedArray, false);
+                    repeat = false;
+                } else if (shipchoice == -1) {
                     repeat = false;
                 } else if (shipchoice == 0) {
                     for (int i = 0; i < placedArray.length; i++) {
                         boolean repeat2 = true;
                         while (repeat2) {
                             if (!placedArray[i]) {
+                                randomGenerator.randomiser();
                                 if (validation.validateLocation(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipsizes[i])) {
                                     placeShips.placeShipsArray(playerGameboard, randomGenerator.getRandCoordinates(), randomGenerator.getRandDirection(), shipnames[i], shipsizes[i]);
-                                    randomGenerator.randomiser();
                                     placedArray[i] = true;
                                     repeat2 = false;
                                 } else {
@@ -76,13 +78,10 @@ public class player {
                             break;
                         }
                     }
-                    System.out.println(placedArray[shipchoice]);
-                    System.out.println(index);
                     if (placedArray[shipchoice]) {
                         for (int i = 0; i < gameBoardLength; i++) {
                             for (int j = 0; j < gameBoardWidth; j++) {
                                 if (playerGameboard[i][j] == index) {
-                                    System.out.println(playerGameboard[i][j]);
                                     playerGameboard[i][j] = 0;
                                 }
                             }
@@ -100,18 +99,23 @@ public class player {
                         }
                     }
                     int[] coordinates = {row, col};
-                    System.out.println("Enter the direction of the ship e.g (U,D,L,R): ");
-                    char direction = Character.toUpperCase(sc.next().charAt(0));
-                    if (direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R') {
-                        if (validation.validateLocation(playerGameboard, coordinates, direction, shipsizes[shipchoice])) {
-                            placeShips.placeShipsArray(playerGameboard, coordinates, direction, shipnames[shipchoice], shipsizes[shipchoice]);
-                            createBoard.printGameBoard(playerGameboard);
-                            placedArray[shipchoice] = true;
-                            repeat = false;
+                    boolean repeat2 =true;
+                    while (repeat2){
+                        System.out.println("Enter the direction of the ship e.g (U,D,L,R): ");
+                        char direction = Character.toUpperCase(sc.next().charAt(0));
+                        if (direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R') {
+                            if (validation.validateLocation(playerGameboard, coordinates, direction, shipsizes[shipchoice])) {
+                                placeShips.placeShipsArray(playerGameboard, coordinates, direction, shipnames[shipchoice], shipsizes[shipchoice]);
+                                createBoard.printGameBoard(playerGameboard);
+                                placedArray[shipchoice] = true;
+                                repeat2 = false;
+                                repeat = false;
+                            }
+                        }else {
+                            System.out.println("Invalid Direction. Retry");
+                            repeat2=true;
                         }
                     }
-                } else if (shipchoice == -1) {
-                    repeat = false;
                 } else {
                     System.out.println("Invalid Choice. Try Again!");
                     repeat = true;
