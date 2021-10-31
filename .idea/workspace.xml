@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="" />
+    <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,9 +66,13 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\James PC\Desktop\AdaShip2" />
       <recent name="C:\Users\James PC\Desktop\AdaShip\src\main\java\com\adaship" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\James PC\Desktop\AdaShip2" />
+      <recent name="C:\Users\James PC\Desktop\AdaShip2\out\artifacts\AdaShip_jar" />
+      <recent name="C:\Users\James PC\Desktop\AdaShip2\src" />
       <recent name="C:\Users\James PC\Desktop\AdaShip" />
     </key>
   </component>
@@ -74,7 +81,20 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR Application.AdaShip">
+    <configuration name="AdaShip" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adaship.AdaShip" />
+      <module name="AdaShip" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adaship.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -96,6 +116,15 @@
         <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JAR Application.AdaShip" />
+      <item itemvalue="Application.AdaShip" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AdaShip" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -114,7 +143,7 @@
       <workItem from="1634547887866" duration="16757000" />
       <workItem from="1634631458374" duration="58306000" />
       <workItem from="1635152684536" duration="73996000" />
-      <workItem from="1635687648774" duration="2832000" />
+      <workItem from="1635687648774" duration="5570000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -319,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635690142029</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="JAR Working">
+      <created>1635690589466</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1635690589466</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
