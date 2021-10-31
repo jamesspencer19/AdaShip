@@ -10,10 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/AdaShip_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/AdaShip_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +53,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/adaship" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -88,13 +86,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,6 +122,7 @@
       <workItem from="1634547887866" duration="16757000" />
       <workItem from="1634631458374" duration="58306000" />
       <workItem from="1635152684536" duration="73996000" />
+      <workItem from="1635687648774" duration="728000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
