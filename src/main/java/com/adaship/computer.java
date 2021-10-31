@@ -22,4 +22,20 @@ public class computer {
         }
         return computerGameboard;
     }
+
+    public static void computerTurn(int[][] playergameboard){
+        int chits = 0;
+        int cmiss = 0;
+        randomGenerator.randomiser();
+        if (gamelogic.guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates())) {
+            chits++;
+        } else {
+            cmiss++;
+        }
+        createBoard.printGameBoard(playergameboard);
+        gamelogic.sunkShip(playergameboard);
+        System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
+    }
+
+
 }

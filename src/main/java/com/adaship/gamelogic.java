@@ -39,22 +39,13 @@ public class gamelogic {
         String turn = "Player Turn";
         int phits = 0;
         int pmiss = 0;
-        int chits = 0;
-        int cmiss = 0;
         while (checkGameOver(computergameboard) || !checkGameOver(playergameboard)) {
             if (turn.equals("Player Turn")) {
                 boolean repeat = true;
                 while (repeat) {
                     int[] playercoordinates = player.playerShot();
                     if (validation.validateTorpedo(computergameboard, playercoordinates)) {
-                        if (guessAgainstTarget(computergameboard, playercoordinates)) {
-                            phits++;
-                        } else {
-                            pmiss++;
-                        }
-                        createBoard.printTargetBoard(computergameboard);
-                        sunkShip(computergameboard);
-                        System.out.println("Player Hits: " + phits + "\nPlayer Misses: " + pmiss);
+                        player.playerInfo(computergameboard,playergameboard,playercoordinates,turn);
                         boolean repeat2 = true;
                         while (repeat2) {
                             System.out.println("Enter 1 to switch to Computer Turn");
@@ -75,28 +66,8 @@ public class gamelogic {
                     }
                 }
             } else if (turn.equals("Computer Turn")) {
-                randomGenerator.randomiser();
-                if (guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates())) {
-                    chits++;
-                } else {
-                    cmiss++;
-                }
-                createBoard.printGameBoard(playergameboard);
-                sunkShip(playergameboard);
-                System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
-                boolean repeat2 = true;
-                while (repeat2) {
-                    System.out.println("Enter 1 to switch to Player Turn");
-                    int switchturn = validation.intValidation();
-                    if (switchturn == 1) {
-                        turn = "Player Turn";
-                        System.out.println(turn);
-                        repeat2 = false;
-                    } else {
-                        System.out.println("Invalid Option");
-                        repeat2 = true;
-                    }
-                }
+                computer.computerTurn(playergameboard);
+                turn = getString(turn);
             }
         }
         if (checkGameOver(computergameboard)) {
@@ -106,10 +77,25 @@ public class gamelogic {
         }
     }
 
+    private static String getString(String turn) {
+        boolean repeat2 = true;
+        while (repeat2) {
+            System.out.println("Enter 1 to switch to Player Turn");
+            int switchturn = validation.intValidation();
+            if (switchturn == 1) {
+                turn = "Player Turn";
+                System.out.println(turn);
+                repeat2 = false;
+            } else {
+                System.out.println("Invalid Option");
+                repeat2 = true;
+            }
+        }
+        return turn;
+    }
+
     public static void playerAgainstPlayer(int[][] player1gameboard, int[][] player2gameboard) {
         String turn = "Player 1 Turn";
-        int p1hits = 0;
-        int p1miss = 0;
         int p2hits = 0;
         int p2miss = 0;
         while (checkGameOver(player1gameboard) || !checkGameOver(player2gameboard)) {
@@ -119,15 +105,7 @@ public class gamelogic {
                 while (repeat) {
                     int[] player1coordinates = player.playerShot();
                     if (validation.validateTorpedo(player2gameboard, player1coordinates)) {
-                        if (guessAgainstTarget(player2gameboard, player1coordinates)) {
-                            p1hits++;
-                        } else {
-                            p1miss++;
-                        }
-                        createBoard.printGameBoard(player1gameboard);
-                        createBoard.printTargetBoard(player2gameboard);
-                        sunkShip(player2gameboard);
-                        System.out.println(turn + " Hits: " + p1hits + "\n" + turn + " Misses: " + p1miss);
+                        player.playerInfo(player2gameboard,player1gameboard,player1coordinates,turn);
                         boolean repeat2 = true;
                         while (repeat2) {
                             System.out.println("Enter 1 to switch to Player 2 Turn");
@@ -154,16 +132,7 @@ public class gamelogic {
                     int[] player2coordinates = player.playerShot();
                     System.out.println(Arrays.toString(player2coordinates));
                     if (validation.validateTorpedo(player1gameboard, player2coordinates)) {
-                        System.out.println(validation.validateTorpedo(player1gameboard, player2coordinates));
-                        if (guessAgainstTarget(player1gameboard, player2coordinates)) {
-                            p2hits++;
-                        } else {
-                            p2miss++;
-                        }
-                        createBoard.printGameBoard(player2gameboard);
-                        createBoard.printTargetBoard(player1gameboard);
-                        sunkShip(player1gameboard);
-                        System.out.println(turn + " Hits: " + p2hits + "\n" + turn + " Misses: " + p2miss);
+                        player.playerInfo(player1gameboard,player2gameboard,player2coordinates,turn);
                         boolean repeat2 = true;
                         while (repeat2) {
                             System.out.println("Enter 1 to switch to Player 1 Turn");
@@ -203,19 +172,7 @@ public class gamelogic {
                 boolean repeat = true;
                 int playershipsleft = shipsleft(playergameboard);
                 while (repeat) {
-                    for (int sl = 0; sl < playershipsleft; sl++) {
-                        int[] playercoordinates = player.playerShot();
-                        if (validation.validateTorpedo(computergameboard, playercoordinates)) {
-                            if (guessAgainstTarget(computergameboard, playercoordinates)) {
-                                phits++;
-                            } else {
-                                pmiss++;
-                            }
-                            createBoard.printTargetBoard(computergameboard);
-                            sunkShip(computergameboard);
-                            System.out.println("Player Hits: " + phits + "\nPlayer Misses: " + pmiss);
-                        }
-                    }
+                    player.salvoPlayer(playershipsleft, computergameboard);
                     boolean repeat2 = true;
                     while (repeat2) {
                         System.out.println("Enter 1 to switch to Computer Turn");
@@ -234,29 +191,9 @@ public class gamelogic {
             } else if (turn.equals("Computer Turn")) {
                 int computershipsleft = shipsleft(computergameboard);
                 for (int sl = 0; sl < computershipsleft; sl++) {
-                    randomGenerator.randomiser();
-                    if (guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates())) {
-                        chits++;
-                    } else {
-                        cmiss++;
-                    }
-                    createBoard.printGameBoard(playergameboard);
-                    sunkShip(playergameboard);
-                    System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
+                    computer.computerTurn(playergameboard);
                 }
-                boolean repeat2 = true;
-                while (repeat2) {
-                    System.out.println("Enter 1 to switch to Player Turn");
-                    int switchturn = validation.intValidation();
-                    if (switchturn == 1) {
-                        turn = "Player Turn";
-                        System.out.println(turn);
-                        repeat2 = false;
-                    } else {
-                        System.out.println("Invalid Option");
-                        repeat2 = true;
-                    }
-                }
+                turn = getString(turn);
             }
         }
         if (checkGameOver(computergameboard)) {
@@ -278,19 +215,7 @@ public class gamelogic {
                 boolean repeat = true;
                 while (repeat) {
                     int player1shipsleft = shipsleft(player1gameboard);
-                    for (int sl = 0; sl < player1shipsleft; sl++) {
-                        int[] playercoordinates = player.playerShot();
-                        if (validation.validateTorpedo(player2gameboard, playercoordinates)) {
-                            if (guessAgainstTarget(player2gameboard, playercoordinates)) {
-                                p1hits++;
-                            } else {
-                                p1miss++;
-                            }
-                            createBoard.printTargetBoard(player2gameboard);
-                            sunkShip(player2gameboard);
-                            System.out.println("Player Hits: " + p1hits + "\nPlayer Misses: " + p1miss);
-                        }
-                    }
+                    player.salvoPlayer(player1shipsleft,player2gameboard);
                     boolean repeat2 = true;
                     while (repeat2) {
                         System.out.println("Enter 1 to switch to Player 2 Turn");
@@ -311,19 +236,7 @@ public class gamelogic {
                 boolean repeat = true;
                 while (repeat) {
                     int player2shipsleft = shipsleft(player2gameboard);
-                    for (int sl = 0; sl < player2shipsleft; sl++) {
-                        int[] playercoordinates = player.playerShot();
-                        if (validation.validateTorpedo(player1gameboard, playercoordinates)) {
-                            if (guessAgainstTarget(player1gameboard, playercoordinates)) {
-                                p2hits++;
-                            } else {
-                                p2miss++;
-                            }
-                            createBoard.printTargetBoard(player1gameboard);
-                            sunkShip(player1gameboard);
-                            System.out.println("Player Hits: " + p2hits + "\nPlayer Misses: " + p2miss);
-                        }
-                    }
+                    player.salvoPlayer(player2shipsleft,player1gameboard);
                     boolean repeat2 = true;
                     while (repeat2) {
                         System.out.println("Enter 1 to switch to Player 1 Turn");

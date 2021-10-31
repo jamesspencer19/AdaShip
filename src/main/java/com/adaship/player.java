@@ -164,4 +164,36 @@ public class player {
         return playercoordinates;
     }
 
+    public static void playerInfo(int[][] attackboard, int[][] currentgameboard,int[] attackcoordinates, String turn){
+        int phits = 0;
+        int pmiss = 0;
+        if (gamelogic.guessAgainstTarget(attackboard, attackcoordinates)) {
+            phits++;
+        } else {
+            pmiss++;
+        }
+        createBoard.printGameBoard(currentgameboard);
+        createBoard.printTargetBoard(attackboard);
+        gamelogic.sunkShip(attackboard);
+        System.out.println(turn + " Hits: " + phits + "\n" + turn + " Misses: " + pmiss);
+    }
+
+    public static void salvoPlayer(int playershipsleft, int[][] attackgameboard){
+        int hits = 0;
+        int miss = 0;
+        for (int sl = 0; sl < playershipsleft; sl++) {
+            int[] attackcoordinates = player.playerShot();
+            if (validation.validateTorpedo(attackgameboard, attackcoordinates)) {
+                if (gamelogic.guessAgainstTarget(attackgameboard, attackcoordinates)) {
+                    hits++;
+                } else {
+                    miss++;
+                }
+                createBoard.printTargetBoard(attackgameboard);
+                gamelogic.sunkShip(attackgameboard);
+                System.out.println("Player Hits: " + hits + "\nPlayer Misses: " + miss);
+            }
+        }
+    }
+
 }
