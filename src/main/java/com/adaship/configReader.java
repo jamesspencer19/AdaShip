@@ -1,17 +1,11 @@
 package com.adaship;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
 
 public class configReader {
     public static int boardLength;
@@ -33,42 +27,46 @@ public class configReader {
 
         while ((line = br.readLine()) != null) {
             String attribute[] = line.split(",");
-            if (attribute[0].equals("board")){
-                if (attribute[1].equals("length")){
+            if (attribute[0].equals("board")) {
+                if (attribute[1].equals("length")) {
                     boardLength = Integer.parseInt(attribute[2]);
-                }
-                else if (attribute[1].equals("width")){
+                } else if (attribute[1].equals("width")) {
                     boardWidth = Integer.parseInt(attribute[2]);
-                }
-                else if (attribute[1].equals("water")){
+                } else if (attribute[1].equals("water")) {
                     String char0 = attribute[2];
                     water = char0.charAt(0);
-                }
-                else if (attribute[1].equals("ship")){
+                } else if (attribute[1].equals("ship")) {
                     String char0 = attribute[2];
                     ship = char0.charAt(0);
-                }
-                else if (attribute[1].equals("hit")){
+                } else if (attribute[1].equals("hit")) {
                     String char0 = attribute[2];
                     hit = char0.charAt(0);
-                }
-                else if (attribute[1].equals("miss")){
+                } else if (attribute[1].equals("miss")) {
                     String char0 = attribute[2];
                     miss = char0.charAt(0);
                 }
 
-            }
-            else if (attribute[0].equals("boat")){
+            } else if (attribute[0].equals("boat")) {
                 shipnameslist.add(attribute[1]);
                 shipsizeslist.add(Integer.parseInt(attribute[2]));
-            }
-            else {
+            } else {
                 System.out.println("Error Reading Config");
             }
         }
         shipnames = shipnameslist.toArray(shipnames);
         shipsizes = shipsizeslist.toArray(shipsizes);
+
+        int shipstotal = 0;
+
+        for (int i =0; i< shipsizes.length;i++){
+            shipstotal += shipsizes[i];
+        }
+        if (shipstotal>(boardWidth*boardLength)){
+            System.out.println("Too many ships for board");
+            System.exit(0);
+        }
     }
+
 
     public static String[] getShipnames() {
         return shipnames;

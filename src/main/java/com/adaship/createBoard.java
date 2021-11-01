@@ -43,7 +43,7 @@ public class createBoard {
             for(int col = 0; col < gameBoardWidth ; col++){
                 int position = gameboard[row][col];
                 if (position>0){
-                    System.out.print(GREEN + position + "  " + RESET);
+                    System.out.print(GREEN + ship + "  " + RESET);
                 }else if(position==-1){
                     System.out.print(RED + hit + "  " + RESET);
                 }else if(position==-2){
