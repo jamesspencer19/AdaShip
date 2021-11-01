@@ -1,5 +1,11 @@
 # AdaShip: Assignment 2
 Essentially, AdaShip is a clone of the classic ‘Battleship’ game – as a default, AdaShip is a two-player, turn based game of sea warfare. You and an opponent each place a number of ships on your own board, and you then alternate turns "firing" torpedoes at each other’s ships. The game is won when one player has destroyed/sunk all of the other player’s ships.
+
+##Repl.it: 
+To run AdaShip on Repl.it you first need to import the GitHub Repo. Then please set the run configuration to the following:  
+* Select Language: `Java`
+* Run Command: `mvn clean compile exec:java`
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/yNhY7Xg/Repl-it.png" alt="Repl-it" border="0"></a>
 ## Challenge Outline:
 ### Problem Summary:
 I will be creating a system that replicates the game of Battleships. The system will be created in multiple releases, each adding different aspects to the game so that it eventually supports: 
