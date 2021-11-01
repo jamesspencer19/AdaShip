@@ -14,6 +14,7 @@ public class configReader {
     public static char ship;
     public static char hit;
     public static char miss;
+    public static char mine;
     public static String[] shipnames = new String[0];
     public static Integer[] shipsizes = new Integer[0];
     public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
@@ -44,6 +45,9 @@ public class configReader {
                 } else if (attribute[1].equals("miss")) {
                     String char0 = attribute[2];
                     miss = char0.charAt(0);
+                } else if (attribute[1].equals("mine")) {
+                    String char0 = attribute[2];
+                    mine = char0.charAt(0);
                 }
 
             } else if (attribute[0].equals("boat")) {
@@ -82,6 +86,10 @@ public class configReader {
 
     public static char getHit() {
         return hit;
+    }
+
+    public static char getMine() {
+        return mine;
     }
 
     public static char getMiss() {

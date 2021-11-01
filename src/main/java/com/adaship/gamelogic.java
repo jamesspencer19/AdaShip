@@ -10,6 +10,7 @@ public class gamelogic {
     public static boolean guessAgainstTarget(int[][] gameboard, int[] coordinates) {
         int row = coordinates[0];
         int col = coordinates[1];
+        checkForMine(gameboard, coordinates);
         if (gameboard[row][col] > 0) {
             gameboard[row][col] = -1;
             System.out.println("HIT");
@@ -37,15 +38,13 @@ public class gamelogic {
 
     public static void playerAgainstComputer(int[][] computergameboard, int[][] playergameboard) {
         String turn = "Player Turn";
-        int phits = 0;
-        int pmiss = 0;
         while (checkGameOver(computergameboard) || !checkGameOver(playergameboard)) {
             if (turn.equals("Player Turn")) {
                 boolean repeat = true;
                 while (repeat) {
                     int[] playercoordinates = player.playerShot();
                     if (validation.validateTorpedo(computergameboard, playercoordinates)) {
-                        player.playerInfo(computergameboard,playergameboard,playercoordinates,turn);
+                        player.playerInfo(computergameboard, playergameboard, playercoordinates, turn);
                         boolean repeat2 = true;
                         while (repeat2) {
                             System.out.println("Enter 1 to switch to Computer Turn");
@@ -96,8 +95,6 @@ public class gamelogic {
 
     public static void playerAgainstPlayer(int[][] player1gameboard, int[][] player2gameboard) {
         String turn = "Player 1 Turn";
-        int p2hits = 0;
-        int p2miss = 0;
         while (checkGameOver(player1gameboard) || !checkGameOver(player2gameboard)) {
             if (turn.equals("Player 1 Turn")) {
                 System.out.println(turn);
@@ -105,7 +102,7 @@ public class gamelogic {
                 while (repeat) {
                     int[] player1coordinates = player.playerShot();
                     if (validation.validateTorpedo(player2gameboard, player1coordinates)) {
-                        player.playerInfo(player2gameboard,player1gameboard,player1coordinates,turn);
+                        player.playerInfo(player2gameboard, player1gameboard, player1coordinates, turn);
                         boolean repeat2 = true;
                         while (repeat2) {
                             System.out.println("Enter 1 to switch to Player 2 Turn");
@@ -132,7 +129,7 @@ public class gamelogic {
                     int[] player2coordinates = player.playerShot();
                     System.out.println(Arrays.toString(player2coordinates));
                     if (validation.validateTorpedo(player1gameboard, player2coordinates)) {
-                        player.playerInfo(player1gameboard,player2gameboard,player2coordinates,turn);
+                        player.playerInfo(player1gameboard, player2gameboard, player2coordinates, turn);
                         boolean repeat2 = true;
                         while (repeat2) {
                             System.out.println("Enter 1 to switch to Player 1 Turn");
@@ -163,10 +160,6 @@ public class gamelogic {
 
     public static void salvoPlayerComputer(int[][] computergameboard, int[][] playergameboard) {
         String turn = "Player Turn";
-        int phits = 0;
-        int pmiss = 0;
-        int chits = 0;
-        int cmiss = 0;
         while (checkGameOver(computergameboard) || !checkGameOver(playergameboard)) {
             if (turn.equals("Player Turn")) {
                 boolean repeat = true;
@@ -205,17 +198,13 @@ public class gamelogic {
 
     public static void salvoPlayerPlayer(int[][] player1gameboard, int[][] player2gameboard) {
         String turn = "Player 1 Turn";
-        int p1hits = 0;
-        int p1miss = 0;
-        int p2hits = 0;
-        int p2miss = 0;
         while (checkGameOver(player1gameboard) || !checkGameOver(player2gameboard)) {
             if (turn.equals("Player 1 Turn")) {
                 System.out.println(turn);
                 boolean repeat = true;
                 while (repeat) {
                     int player1shipsleft = shipsleft(player1gameboard);
-                    player.salvoPlayer(player1shipsleft,player2gameboard);
+                    player.salvoPlayer(player1shipsleft, player2gameboard);
                     boolean repeat2 = true;
                     while (repeat2) {
                         System.out.println("Enter 1 to switch to Player 2 Turn");
@@ -236,7 +225,7 @@ public class gamelogic {
                 boolean repeat = true;
                 while (repeat) {
                     int player2shipsleft = shipsleft(player2gameboard);
-                    player.salvoPlayer(player2shipsleft,player1gameboard);
+                    player.salvoPlayer(player2shipsleft, player1gameboard);
                     boolean repeat2 = true;
                     while (repeat2) {
                         System.out.println("Enter 1 to switch to Player 1 Turn");
@@ -260,6 +249,19 @@ public class gamelogic {
         } else if (checkGameOver(player2gameboard)) {
             System.out.println("PLAYER 1 WINS!");
         }
+    }
+
+    public static void minesComputerPlayer(int[][] computergameboard, int[][] playergameboard) {
+        placeMines(computergameboard);
+        createBoard.printGameBoard(computergameboard, "game");
+        placeMines(playergameboard);
+        playerAgainstComputer(computergameboard, playergameboard);
+    }
+
+    public static void minesPlayerPlayer(int[][] player1gameboard, int[][] player2gameboard) {
+        placeMines(player1gameboard);
+        placeMines(player1gameboard);
+        playerAgainstPlayer(player1gameboard, player2gameboard);
     }
 
     public static void sunkShip(int[][] gameboard) {
@@ -308,6 +310,51 @@ public class gamelogic {
             i--;
         }
         return shipsleft;
+    }
+
+    public static void placeMines(int[][] gameboard) {
+        for (int i = 0; i < 5; i++) {
+            boolean repeat = true;
+            while (repeat) {
+                randomGenerator.randomiser();
+                int[] coordinates = randomGenerator.getRandCoordinates();
+                int row = coordinates[0];
+                int col = coordinates[1];
+                if (validation.validateMine(gameboard, coordinates)) {
+                    gameboard[row][col] = -3;
+                    repeat = false;
+                } else {
+                    repeat = true;
+                }
+            }
+        }
+    }
+
+    public static void checkForMine(int[][] gameboard, int[] coordinates) {
+        int row = coordinates[0];
+        int col = coordinates[1];
+        try {
+            if (gameboard[row][col] == -3) {
+                System.out.println("MINE HIT");
+                if (gameboard[row - 1][col] > 0) {
+                    gameboard[row - 1][col] = -1;
+                } else if (gameboard[row - 1][col + 1] > 0) {
+                    gameboard[row - 1][col + 1] = -1;
+                } else if (gameboard[row][col + 1] > 0) {
+                    gameboard[row][col + 1] = -1;
+                } else if (gameboard[row + 1][col + 1] > 0) {
+                    gameboard[row + 1][col + 1] = -1;
+                } else if (gameboard[row + 1][col] > 0) {
+                    gameboard[row + 1][col] = -1;
+                } else if (gameboard[row + 1][col - 1] > 0) {
+                    gameboard[row - 1][col + 1] = -1;
+                } else if (gameboard[row][col - 1] > 0) {
+                    gameboard[row][col - 1] = -1;
+                } else if (gameboard[row - 1][col - 1] > 0) {
+                    gameboard[row - 1][col - 1] = -1;
+                }
+            }
+        }catch (ArrayIndexOutOfBoundsException e){}
     }
 
 }

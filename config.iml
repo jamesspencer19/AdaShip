@@ -4,6 +4,7 @@ board,water,~
 board,ship,S
 board,hit,X
 board,miss,O
+board,mine,M
 boat,Carrier,5
 boat,Battleship,4
 boat,Destroyer,3

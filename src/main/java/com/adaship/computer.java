@@ -7,7 +7,6 @@ public class computer {
     public static int[][] computerPlayer() {
         randomGenerator.randomiser();
         Integer[] shipsizes = configReader.getShipsizes();
-        System.out.println(Arrays.toString(shipsizes));
         String[] shipnames = configReader.getShipnames();
         int[][] computerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
         for (int i = 0; i < shipsizes.length; i++) {
@@ -35,7 +34,7 @@ public class computer {
         } else {
             cmiss++;
         }
-        createBoard.printGameBoard(playergameboard);
+        createBoard.printGameBoard(playergameboard,"game");
         gamelogic.sunkShip(playergameboard);
         System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
     }

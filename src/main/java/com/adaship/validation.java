@@ -11,40 +11,42 @@ public class validation {
     public static char charValidation() {
         boolean repeat = true;
         char charcol = 0;
-        while (repeat){
+        while (repeat) {
             charcol = Character.toUpperCase(sc.next().charAt(0));
-            if (Character.toString(charcol).matches("[A-Z]")){
-                repeat=false;
-            }else{
+            if (Character.toString(charcol).matches("[A-Z]")) {
+                repeat = false;
+            } else {
                 System.out.println("Input is not (A-Z)");
                 repeat = true;
             }
         }
         return charcol;
     }
-    public static int intValidation(){
+
+    public static int intValidation() {
         while (!sc.hasNextInt()) {
             System.out.println("Input is not a number!");
             sc.nextLine();
         }
         return sc.nextInt();
     }
-    public static void coordValidation(int[]coordinates,char direction){
+
+    public static void coordValidation(int[] coordinates, char direction) {
         row = coordinates[0];
         col = coordinates[1];
         if (direction == 'U') {
-            row = row+1;
+            row = row + 1;
         } else if (direction == 'D') {
             row = row - 1;
         } else if (direction == 'L') {
-            col = col+1;
+            col = col + 1;
         } else if (direction == 'R') {
-            col = col-1;
+            col = col - 1;
         }
     }
 
-    public static boolean validateLocation(int[][] gameboard, int[] coordinates, char direction, int shipsize){
-        validation.coordValidation(coordinates,direction);
+    public static boolean validateLocation(int[][] gameboard, int[] coordinates, char direction, int shipsize) {
+        validation.coordValidation(coordinates, direction);
         int row = validation.getRow();
         int col = validation.getCol();
         int i = shipsize;
@@ -74,22 +76,34 @@ public class validation {
                 }
                 i--;
             }
-        }catch (ArrayIndexOutOfBoundsException exception){
+        } catch (ArrayIndexOutOfBoundsException exception) {
             flag = false;
         }
         return flag;
     }
 
-    public static boolean validateTorpedo(int[][] gameboard, int[]coordinates){
+    public static boolean validateTorpedo(int[][] gameboard, int[] coordinates) {
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
         row = coordinates[0];
         col = coordinates[1];
         int val = gameboard[row][col];
-        if(val >= 0 && row < gameBoardLength && col < gameBoardWidth){
+        if ((val >= 0 || val == -3)&& row < gameBoardLength && col < gameBoardWidth) {
             return true;
+        } else {
+            return false;
         }
-        else {
+    }
+
+    public static boolean validateMine(int[][] gameboard, int[] coordinates) {
+        int gameBoardLength = gameboard.length;
+        int gameBoardWidth = gameboard[0].length;
+        row = coordinates[0];
+        col = coordinates[1];
+        int val = gameboard[row][col];
+        if (val == 0 && row < gameBoardLength && col < gameBoardWidth) {
+            return true;
+        } else {
             return false;
         }
     }
