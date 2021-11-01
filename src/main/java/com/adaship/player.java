@@ -13,7 +13,7 @@ public class player {
 
     public static int[][] playerPlaceShips(int playernum) {
         System.out.println("Player: " + playernum + " Place Ships");
-        int[] shipsizes = configReader.getShipsizes();
+        Integer[] shipsizes = configReader.getShipsizes();
         String[] shipnames = configReader.getShipnames();
         playerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
         createBoard.printGameBoard(playerGameboard);

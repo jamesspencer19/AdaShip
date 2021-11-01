@@ -2,11 +2,16 @@ package com.adaship;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class configReader {
     public static int boardLength;
@@ -15,51 +20,61 @@ public class configReader {
     public static char ship;
     public static char hit;
     public static char miss;
-    public static int carrier;
-    public static int battleship;
-    public static int submarine;
-    public static int destroyer;
-    public static int patrol;
-    public static String[] shipnames;
-    public static int[] shipsizes;
-    public static char [] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    public static String[] shipnames = new String[0];
+    public static Integer[] shipsizes = new Integer[0];
+    public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
 
     public static void readConfigJSON() throws IOException {
-        BufferedReader br=new BufferedReader(new FileReader("config.json"));
+        BufferedReader br = new BufferedReader(new FileReader("config.iml"));
         String line;
-        StringBuilder sbuilderObj = new StringBuilder();
-        while((line=br.readLine()) !=null){
-            sbuilderObj.append(line);
+        ArrayList<String> shipnameslist = new ArrayList<String>(Arrays.asList(shipnames));
+        ArrayList<Integer> shipsizeslist = new ArrayList<Integer>(Arrays.asList(shipsizes));
+
+        while ((line = br.readLine()) != null) {
+            String attribute[] = line.split(",");
+            if (attribute[0].equals("board")){
+                if (attribute[1].equals("length")){
+                    boardLength = Integer.parseInt(attribute[2]);
+                }
+                else if (attribute[1].equals("width")){
+                    boardWidth = Integer.parseInt(attribute[2]);
+                }
+                else if (attribute[1].equals("water")){
+                    String char0 = attribute[2];
+                    water = char0.charAt(0);
+                }
+                else if (attribute[1].equals("ship")){
+                    String char0 = attribute[2];
+                    ship = char0.charAt(0);
+                }
+                else if (attribute[1].equals("hit")){
+                    String char0 = attribute[2];
+                    hit = char0.charAt(0);
+                }
+                else if (attribute[1].equals("miss")){
+                    String char0 = attribute[2];
+                    miss = char0.charAt(0);
+                }
+
+            }
+            else if (attribute[0].equals("boat")){
+                shipnameslist.add(attribute[1]);
+                shipsizeslist.add(Integer.parseInt(attribute[2]));
+            }
+            else {
+                System.out.println("Error Reading Config");
+            }
         }
-
-        JsonObject gsonObj = new Gson().fromJson(sbuilderObj.toString(), JsonObject.class);
-
-        boardLength = gsonObj.getAsJsonObject("board").get("length").getAsInt();
-        boardWidth = gsonObj.getAsJsonObject("board").get("width").getAsInt();
-        water = gsonObj.getAsJsonObject("board").get("water").getAsString().charAt(0);
-        ship = gsonObj.getAsJsonObject("board").get("ship").getAsString().charAt(0);
-        hit = gsonObj.getAsJsonObject("board").get("hit").getAsString().charAt(0);
-        miss = gsonObj.getAsJsonObject("board").get("miss").getAsString().charAt(0);
-
-
-        JsonArray jsonArray = gsonObj.getAsJsonArray("boats");
-        for (int i = 0; i < 1; i++) {
-            carrier = jsonArray.get(i).getAsJsonObject().get("carrier").getAsInt();
-            battleship = jsonArray.get(i).getAsJsonObject().get("battleship").getAsInt();
-            destroyer = jsonArray.get(i).getAsJsonObject().get("destroyer").getAsInt();
-            submarine = jsonArray.get(i).getAsJsonObject().get("submarine").getAsInt();
-            patrol = jsonArray.get(i).getAsJsonObject().get("patrol").getAsInt();
-        }
-        shipnames = new String[]{"Carrier", "Battleship", "Submarine", "Destroyer", "Patrol"};
-        shipsizes = new int[]{carrier, battleship, submarine, destroyer, patrol};
+        shipnames = shipnameslist.toArray(shipnames);
+        shipsizes = shipsizeslist.toArray(shipsizes);
     }
 
     public static String[] getShipnames() {
         return shipnames;
     }
 
-    public static int[] getShipsizes() {
+    public static Integer[] getShipsizes() {
         return shipsizes;
     }
 

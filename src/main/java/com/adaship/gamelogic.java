@@ -263,7 +263,7 @@ public class gamelogic {
     }
 
     public static void sunkShip(int[][] gameboard) {
-        int[] shipsizes = configReader.getShipsizes();
+        Integer[] shipsizes = configReader.getShipsizes();
         String[] shipnames = configReader.getShipnames();
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
@@ -286,7 +286,7 @@ public class gamelogic {
     }
 
     public static int shipsleft(int[][] gameboard) {
-        int[] shipsizes = configReader.getShipsizes();
+        Integer[] shipsizes = configReader.getShipsizes();
         String[] shipnames = configReader.getShipnames();
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;

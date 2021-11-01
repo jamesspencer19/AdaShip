@@ -1,0 +1,11 @@
+board,length,10
+board,width,10
+board,water,~
+board,ship,S
+board,hit,X
+board,miss,O
+boat,Carrier,5
+boat,Battleship,4
+boat,Destroyer,3
+boat,Submarine,3
+boat,Patrol,2
