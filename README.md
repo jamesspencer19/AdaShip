@@ -17,7 +17,7 @@ I will be creating a system that replicates the game of Battleships. The system 
 * Two player game (hidden mines) game
 * Computer v computer (hidden mines)
 ### UML Diagram:
-<a href="https://ibb.co/KysXjQS"><img src="https://i.ibb.co/pXKxvs5/Ada-Ship-UML.png" alt="Ada-Ship-UML" border="0"></a>
+<a href="https://ibb.co/j5pSZQG"><img src="https://i.ibb.co/3sJnYjW/Ada-Ship-UML.png" alt="Ada-Ship-UML" border="0"></a>
 ### Initial working plan, overall approach, development strategy and approach to quality:
 My working plan is approach the problem by breaking down the overall problem down into smaller tasks. Each task will be organised on a Kanban board and worked on individually therefore taking an Agile approach to development. I will continuously check the quality of the code that I have written through regular code reviews with my partner, Morgan McNeil. This will help me to highlight code smells that I may not be necessarily able to see myself.
 
