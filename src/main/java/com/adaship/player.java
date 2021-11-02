@@ -99,8 +99,8 @@ public class player {
                         }
                     }
                     int[] coordinates = {row, col};
-                    boolean repeat2 =true;
-                    while (repeat2){
+                    boolean repeat2 = true;
+                    while (repeat2) {
                         System.out.println("Enter the direction of the ship e.g (U,D,L,R): ");
                         char direction = Character.toUpperCase(sc.next().charAt(0));
                         if (direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R') {
@@ -111,9 +111,9 @@ public class player {
                                 repeat2 = false;
                                 repeat = false;
                             }
-                        }else {
+                        } else {
                             System.out.println("Invalid Direction. Retry");
-                            repeat2=true;
+                            repeat2 = true;
                         }
                     }
                 } else {
@@ -132,15 +132,16 @@ public class player {
         }
         createBoard.printGameBoard(playerGameboard, "game");
         targetboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
-        createBoard.printGameBoard(targetboard,"target");
+        createBoard.printGameBoard(targetboard, "target");
         return playerGameboard;
     }
 
     public static int[] playerShot() {
-        System.out.println("Torpedo Menu: \n1. Manually Fire\n2. Auto Fire\n3. Exit\nEnter Choice: ");
-        int torpedomenu = validation.intValidation();
-        switch (torpedomenu) {
-            case 1: {
+        boolean repeat = true;
+        while (repeat) {
+            System.out.println("Torpedo Menu: \n1. Manually Fire\n2. Auto Fire\n3. Exit\nEnter Choice: ");
+            int torpedomenu = validation.intValidation();
+            if (torpedomenu == 1) {
                 System.out.println("Enter Row Co-Ordinates for Torpedo Shot: ");
                 int row = validation.intValidation() - 1;
                 int col = 0;
@@ -151,20 +152,25 @@ public class player {
                         col = b;
                     }
                 }
-                return playercoordinates = new int[]{row, col};
+                repeat = false;
+                playercoordinates = new int[]{row, col};
             }
-            case 2: {
+            if (torpedomenu == 2) {
                 randomGenerator.randomiser();
-                return playercoordinates = randomGenerator.getRandCoordinates();
+                repeat = false;
+                playercoordinates = randomGenerator.getRandCoordinates();
             }
-            case 3: {
+            if (torpedomenu == 3) {
                 System.exit(0);
+            } else {
+                System.err.println("Invalid option selected");
+                repeat=true;
             }
         }
         return playercoordinates;
     }
 
-    public static void playerInfo(int[][] attackboard, int[][] currentgameboard,int[] attackcoordinates, String turn){
+    public static void playerInfo(int[][] attackboard, int[][] currentgameboard, int[] attackcoordinates, String turn) {
         int phits = 0;
         int pmiss = 0;
         if (gamelogic.guessAgainstTarget(attackboard, attackcoordinates)) {
@@ -178,7 +184,7 @@ public class player {
         System.out.println(turn + " Hits: " + phits + "\n" + turn + " Misses: " + pmiss);
     }
 
-    public static void salvoPlayer(int playershipsleft, int[][] attackgameboard){
+    public static void salvoPlayer(int playershipsleft, int[][] attackgameboard) {
         int hits = 0;
         int miss = 0;
         for (int sl = 0; sl < playershipsleft; sl++) {

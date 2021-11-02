@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.adaship</OriginalElement>
+  <nodes>
+    <node x="276.45181405895676" y="649.0">com.adaship.gamelogic</node>
+    <node x="32.5" y="333.0">com.adaship.randomGenerator</node>
+    <node x="400.50541383219957" y="480.0">com.adaship.player</node>
+    <node x="265.0714002267573" y="1058.0">com.adaship.computer</node>
+    <node x="234.69291383219954" y="1286.0">com.adaship.AdaShip</node>
+    <node x="460.6666666666667" y="1183.0">com.adaship.AdaShipMenu</node>
+    <node x="559.7351473922902" y="355.0">com.adaship.placeShips</node>
+    <node x="242.5" y="333.0">com.adaship.createBoard</node>
+    <node x="47.53514739229013" y="0.0">com.adaship.configReader</node>
+    <node x="668.8438066893424" y="33.0">com.adaship.validation</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.adaship.computer" target="com.adaship.placeShips">
+      <point x="54.0" y="-37.5" />
+      <point x="413.5714002267573" y="1028.0" />
+      <point x="792.9851473922902" y="1028.0" />
+      <point x="77.75" y="26.5" />
+    </edge>
+    <edge source="com.adaship.gamelogic" target="com.adaship.validation">
+      <point x="120.41666666666663" y="-169.5" />
+      <point x="541.3684807256234" y="629.0" />
+      <point x="893.9946995464852" y="629.0" />
+      <point x="893.9946995464852" y="313.0" />
+      <point x="817.3438066893424" y="313.0" />
+      <point x="0.0" y="103.5" />
+    </edge>
+    <edge source="com.adaship.placeShips" target="com.adaship.validation">
+      <point x="77.75" y="-26.5" />
+      <point x="792.9851473922902" y="313.0" />
+      <point x="757.9438066893424" y="313.0" />
+      <point x="-59.39999999999998" y="103.5" />
+    </edge>
+    <edge source="com.adaship.AdaShipMenu" target="com.adaship.computer">
+      <point x="-46.875" y="-26.5" />
+      <point x="476.2916666666667" y="1163.0" />
+      <point x="359.5714002267573" y="1163.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="com.adaship.player" target="com.adaship.randomGenerator">
+      <point x="-106.79999999999995" y="-59.5" />
+      <point x="427.2054138321996" y="450.0" />
+      <point x="190.83333333333337" y="450.0" />
+      <point x="63.33333333333337" y="48.5" />
+    </edge>
+    <edge source="com.adaship.AdaShipMenu" target="com.adaship.player">
+      <point x="15.625" y="-26.5" />
+      <point x="538.7916666666667" y="1153.0" />
+      <point x="628.8139597505668" y="1153.0" />
+      <point x="628.8139597505668" y="619.0" />
+      <point x="623.0054138321996" y="619.0" />
+      <point x="89.0" y="59.5" />
+    </edge>
+    <edge source="com.adaship.player" target="com.adaship.createBoard">
+      <point x="-53.39999999999998" y="-59.5" />
+      <point x="480.6054138321996" y="460.0" />
+      <point x="448.3333333333333" y="460.0" />
+      <point x="82.33333333333331" y="48.5" />
+    </edge>
+    <edge source="com.adaship.AdaShipMenu" target="com.adaship.validation">
+      <point x="46.875" y="-26.5" />
+      <point x="570.0416666666667" y="1163.0" />
+      <point x="915.9946995464852" y="1163.0" />
+      <point x="915.9946995464852" y="313.0" />
+      <point x="936.1438066893423" y="313.0" />
+      <point x="118.79999999999995" y="103.5" />
+    </edge>
+    <edge source="com.adaship.computer" target="com.adaship.configReader">
+      <point x="-81.0" y="-37.5" />
+      <point x="278.5714002267573" y="1038.0" />
+      <point x="11.0" y="1038.0" />
+      <point x="11.0" y="303.0" />
+      <point x="84.8208616780044" y="303.0" />
+      <point x="-49.71428571428572" y="136.5" />
+    </edge>
+    <edge source="com.adaship.player" target="com.adaship.configReader">
+      <point x="0.0" y="-59.5" />
+      <point x="534.0054138321996" y="460.0" />
+      <point x="538.2351473922902" y="460.0" />
+      <point x="538.2351473922902" y="303.0" />
+      <point x="184.2494331065758" y="303.0" />
+      <point x="49.714285714285666" y="136.5" />
+    </edge>
+    <edge source="com.adaship.gamelogic" target="com.adaship.randomGenerator">
+      <point x="-72.25" y="-169.5" />
+      <point x="348.70181405895676" y="619.0" />
+      <point x="102.05452097505662" y="619.0" />
+      <point x="102.05452097505662" y="460.0" />
+      <point x="127.5" y="460.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="com.adaship.player" target="com.adaship.validation">
+      <point x="53.39999999999998" y="-59.5" />
+      <point x="587.4054138321995" y="460.0" />
+      <point x="549.2351473922902" y="460.0" />
+      <point x="549.2351473922902" y="313.0" />
+      <point x="698.5438066893424" y="313.0" />
+      <point x="-118.79999999999995" y="103.5" />
+    </edge>
+    <edge source="com.adaship.computer" target="com.adaship.validation">
+      <point x="81.0" y="-37.5" />
+      <point x="440.5714002267573" y="1038.0" />
+      <point x="904.9946995464852" y="1038.0" />
+      <point x="904.9946995464852" y="303.0" />
+      <point x="876.7438066893424" y="303.0" />
+      <point x="59.39999999999998" y="103.5" />
+    </edge>
+    <edge source="com.adaship.computer" target="com.adaship.createBoard">
+      <point x="-27.0" y="-37.5" />
+      <point x="332.5714002267573" y="1018.0" />
+      <point x="233.4711876417233" y="1018.0" />
+      <point x="233.4711876417233" y="460.0" />
+      <point x="283.6666666666667" y="460.0" />
+      <point x="-82.33333333333331" y="48.5" />
+    </edge>
+    <edge source="com.adaship.computer" target="com.adaship.randomGenerator">
+      <point x="-54.0" y="-37.5" />
+      <point x="305.5714002267573" y="1028.0" />
+      <point x="81.78514739229013" y="1028.0" />
+      <point x="81.78514739229013" y="460.0" />
+      <point x="64.16666666666669" y="460.0" />
+      <point x="-63.333333333333314" y="48.5" />
+    </edge>
+    <edge source="com.adaship.player" target="com.adaship.placeShips">
+      <point x="106.79999999999995" y="-59.5" />
+      <point x="640.8054138321995" y="460.0" />
+      <point x="637.4851473922902" y="460.0" />
+      <point x="-77.75" y="26.5" />
+    </edge>
+    <edge source="com.adaship.AdaShip" target="com.adaship.configReader">
+      <point x="-37.25" y="-26.5" />
+      <point x="271.94291383219957" y="1261.0" />
+      <point x="0.0" y="1261.0" />
+      <point x="0.0" y="293.0" />
+      <point x="59.96371882086157" y="293.0" />
+      <point x="-74.57142857142856" y="136.5" />
+    </edge>
+    <edge source="com.adaship.gamelogic" target="com.adaship.configReader">
+      <point x="-120.41666666666663" y="-169.5" />
+      <point x="300.5351473922901" y="629.0" />
+      <point x="22.0" y="629.0" />
+      <point x="22.0" y="313.0" />
+      <point x="109.67800453514724" y="313.0" />
+      <point x="-24.85714285714289" y="136.5" />
+    </edge>
+    <edge source="com.adaship.randomGenerator" target="com.adaship.configReader">
+      <point x="0.0" y="-48.5" />
+      <point x="127.5" y="313.0" />
+      <point x="134.53514739229013" y="313.0" />
+      <point x="-2.8421709430404007E-14" y="136.5" />
+    </edge>
+    <edge source="com.adaship.gamelogic" target="com.adaship.createBoard">
+      <point x="-24.083333333333314" y="-169.5" />
+      <point x="396.8684807256235" y="629.0" />
+      <point x="390.00541383219957" y="629.0" />
+      <point x="390.00541383219957" y="460.0" />
+      <point x="366.0" y="460.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="com.adaship.createBoard" target="com.adaship.configReader">
+      <point x="0.0" y="-48.5" />
+      <point x="366.0" y="313.0" />
+      <point x="159.39229024943296" y="313.0" />
+      <point x="24.857142857142833" y="136.5" />
+    </edge>
+    <edge source="com.adaship.gamelogic" target="com.adaship.player">
+      <point x="24.08333333333337" y="-169.5" />
+      <point x="-89.0" y="59.5" />
+    </edge>
+    <edge source="com.adaship.placeShips" target="com.adaship.configReader">
+      <point x="-77.75" y="-26.5" />
+      <point x="637.4851473922902" y="293.0" />
+      <point x="209.10657596371863" y="293.0" />
+      <point x="74.5714285714285" y="136.5" />
+    </edge>
+    <edge source="com.adaship.gamelogic" target="com.adaship.computer">
+      <point x="0.0" y="169.5" />
+      <point x="420.95181405895676" y="1018.0" />
+      <point x="386.5714002267573" y="1018.0" />
+      <point x="27.0" y="-37.5" />
+    </edge>
+    <edge source="com.adaship.computer" target="com.adaship.gamelogic">
+      <point x="0.0" y="-37.5" />
+      <point x="359.5714002267573" y="1008.0" />
+      <point x="324.6184807256235" y="1008.0" />
+      <point x="-96.33333333333331" y="169.5" />
+    </edge>
+    <edge source="com.adaship.AdaShipMenu" target="com.adaship.gamelogic">
+      <point x="-15.625" y="-26.5" />
+      <point x="507.5416666666667" y="1153.0" />
+      <point x="466.875" y="1153.0" />
+      <point x="466.875" y="1018.0" />
+      <point x="517.2851473922901" y="1018.0" />
+      <point x="96.33333333333331" y="169.5" />
+    </edge>
+    <edge source="com.adaship.player" target="com.adaship.gamelogic">
+      <point x="0.0" y="59.5" />
+      <point x="534.0054138321996" y="629.0" />
+      <point x="493.20181405895676" y="629.0" />
+      <point x="72.25" y="-169.5" />
+    </edge>
+    <edge source="com.adaship.AdaShip" target="com.adaship.AdaShipMenu">
+      <point x="37.25" y="-26.5" />
+      <point x="346.44291383219957" y="1261.0" />
+      <point x="523.1666666666667" y="1261.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="457.5" y="1029.0" />
+  <SelectedNodes>
+    <node>com.adaship.gamelogic</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

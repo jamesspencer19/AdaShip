@@ -15,44 +15,52 @@ public class AdaShipMenu {
                 "  ^^^^^ ^^^^^^^^^^^^^^^^^^^^^\n" +
                 "    ^^^^      ^^^^     ^^^    ^^\n" +
                 "         ^^^^      ^^^");
-        System.out.println("Menu: \n" + "1. Player vs Computer\n2. Player vs Player\n3. Player vs Computer (Salvo)\n4. Player vs Player (Salvo)\n" +
-                "5. Player vs Computer (Mines)\n6. Player vs Player (Mines)\n7. Copmuter vs Computer (Mines)\n8. Quit\n");
-        int answer = validation.intValidation();
-        switch (answer){
-            case 1:{
+        boolean repeat = true;
+        while (repeat) {
+            System.out.println("Menu: \n" + "1. Player vs Computer\n2. Player vs Player\n3. Player vs Computer (Salvo)\n4. Player vs Player (Salvo)\n" +
+                    "5. Player vs Computer (Mines)\n6. Player vs Player (Mines)\n7. Copmuter vs Computer (Mines)\n8. Quit\n");
+            int answer = validation.intValidation();
+            if (answer == 1) {
                 gamelogic.playerAgainstComputer(computer.computerPlayer(), player.playerPlaceShips(1));
+                System.out.println("Player vs Computer");
+                repeat = false;
             }
-            break;
-            case 2:{
+            if (answer == 2) {
                 gamelogic.playerAgainstPlayer(player.playerPlaceShips(1), player.playerPlaceShips(2));
+                System.out.println("Player vs Player");
+                repeat = false;
             }
-            break;
-            case 3:{
+            if (answer == 3) {
                 gamelogic.salvoPlayerComputer(computer.computerPlayer(), player.playerPlaceShips(1));
+                System.out.println("Player vs Computer (Salvo)");
+                repeat = false;
             }
-            break;
-            case 4:{
+            if (answer == 4) {
                 gamelogic.salvoPlayerPlayer(player.playerPlaceShips(1), player.playerPlaceShips(2));
+                System.out.println("Player vs Player (Salvo)");
+                repeat = false;
             }
-            break;
-            case 5:{
+            if (answer == 5) {
                 gamelogic.minesComputerPlayer(computer.computerPlayer(), player.playerPlaceShips(1));
+                System.out.println("Player vs Computer (Mines)");
+                repeat = false;
             }
-            break;
-            case 6:{
-                gamelogic.minesPlayerPlayer(player.playerPlaceShips(1),player.playerPlaceShips(2));
+            if (answer == 6) {
+                gamelogic.minesPlayerPlayer(player.playerPlaceShips(1), player.playerPlaceShips(2));
+                System.out.println("Player vs Player (Mines)");
+                repeat = false;
             }
-            break;
-            case 7:{
-                gamelogic.minesComputerComputer(computer.computerPlayer(),computer.computerPlayer());
+            if (answer == 7) {
+                gamelogic.minesComputerComputer(computer.computerPlayer(), computer.computerPlayer());
+                System.out.println("Copmuter vs Computer (Mines)");
+                repeat = false;
             }
-            break;
-            case 8: {
-                for (int i = 0; i < 25; i++) {
-                    System.out.println("\n");
-                }
+            if (answer == 8) {
+                System.exit(0);
+            } else {
+                System.err.println("Invalid option selected");
+                repeat = true;
             }
-            break;
         }
     }
 }
