@@ -44,7 +44,7 @@ public class AdaShipMenu {
             }
             break;
             case 7:{
-
+                gamelogic.minesComputerComputer(computer.computerPlayer(),computer.computerPlayer());
             }
             break;
             case 8: {

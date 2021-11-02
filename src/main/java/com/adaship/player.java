@@ -16,7 +16,7 @@ public class player {
         Integer[] shipsizes = configReader.getShipsizes();
         String[] shipnames = configReader.getShipnames();
         playerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
-        createBoard.printGameBoard(playerGameboard);
+        createBoard.printGameBoard(playerGameboard, "game");
         boolean notcomplete = true;
         boolean[] placedArray = new boolean[shipsizes.length];
         for (int i = 0; i < shipsizes.length; i++) {
@@ -39,7 +39,7 @@ public class player {
                     System.exit(0);
                 } else if (shipchoice == -2) {
                     playerGameboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
-                    createBoard.printGameBoard(playerGameboard);
+                    createBoard.printGameBoard(playerGameboard, "game");
                     Arrays.fill(placedArray, false);
                     repeat = false;
                 } else if (shipchoice == -1) {
@@ -64,7 +64,7 @@ public class player {
                             }
                         }
                     }
-                    createBoard.printGameBoard(playerGameboard);
+                    createBoard.printGameBoard(playerGameboard, "game");
                     repeat = false;
                 } else if (shipchoice > 0 && shipchoice < shipsizes.length) {
                     shipchoice = shipchoice - 1;
@@ -106,7 +106,7 @@ public class player {
                         if (direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R') {
                             if (validation.validateLocation(playerGameboard, coordinates, direction, shipsizes[shipchoice])) {
                                 placeShips.placeShipsArray(playerGameboard, coordinates, direction, shipnames[shipchoice], shipsizes[shipchoice]);
-                                createBoard.printGameBoard(playerGameboard);
+                                createBoard.printGameBoard(playerGameboard, "game");
                                 placedArray[shipchoice] = true;
                                 repeat2 = false;
                                 repeat = false;
@@ -130,9 +130,9 @@ public class player {
                 }
             }
         }
-        createBoard.printGameBoard(playerGameboard);
+        createBoard.printGameBoard(playerGameboard, "game");
         targetboard = createBoard.createGameBoard(configReader.getBoardLength(), configReader.getBoardWidth(), configReader.getWater());
-        createBoard.printTargetBoard(targetboard);
+        createBoard.printGameBoard(targetboard,"target");
         return playerGameboard;
     }
 
@@ -172,8 +172,8 @@ public class player {
         } else {
             pmiss++;
         }
-        createBoard.printGameBoard(currentgameboard);
-        createBoard.printTargetBoard(attackboard);
+        createBoard.printGameBoard(currentgameboard, "game");
+        createBoard.printGameBoard(attackboard, "target");
         gamelogic.sunkShip(attackboard);
         System.out.println(turn + " Hits: " + phits + "\n" + turn + " Misses: " + pmiss);
     }
@@ -189,7 +189,7 @@ public class player {
                 } else {
                     miss++;
                 }
-                createBoard.printTargetBoard(attackgameboard);
+                createBoard.printGameBoard(attackgameboard, "target");
                 gamelogic.sunkShip(attackgameboard);
                 System.out.println("Player Hits: " + hits + "\nPlayer Misses: " + miss);
             }

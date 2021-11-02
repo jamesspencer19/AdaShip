@@ -34,8 +34,8 @@ public class computer {
         } else {
             cmiss++;
         }
-        createBoard.printGameBoard(playergameboard,"game");
         gamelogic.sunkShip(playergameboard);
+        createBoard.printGameBoard(playergameboard, "game");
         System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
     }
 

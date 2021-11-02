@@ -54,28 +54,27 @@ public class createBoard {
                     }else if (position==-3){
                         System.out.print(CYAN + mine + "  " + RESET);
                     }
-                    else if(position==-1){
-                        System.out.print(RED + hit + "  " + RESET);
-                    }else if(position==-2){
-                        System.out.print(miss + "  " + RESET);
-                    }
-                    else{
-                        System.out.print(BLUE + water + "  " + RESET);
-                    }
+                    else standardBoard(position);
                 }else if (boardtype.equals("target")){
-                    if(position==-1){
-                        System.out.print(RED + hit + "  " + RESET);
-                    }else if(position==-2){
-                        System.out.print(miss + "  " + RESET);
-                    }
-                    else{
-                        System.out.print(BLUE + water + "  " + RESET);
-                    }
+                    standardBoard(position);
                 }
             }
             System.out.println();
         }
         System.out.println();
+    }
+
+    private static void standardBoard(int position) {
+        if(position==-1){
+            System.out.print(RED + hit + "  " + RESET);
+        }else if(position==-2){
+            System.out.print(miss + "  " + RESET);
+        }else if (position==-4){
+            System.out.print(RED + mine + "  " + RESET);
+        }
+        else{
+            System.out.print(BLUE + water + "  " + RESET);
+        }
     }
 
 }

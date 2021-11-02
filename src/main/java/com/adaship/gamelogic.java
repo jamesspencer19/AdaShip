@@ -10,15 +10,18 @@ public class gamelogic {
     public static boolean guessAgainstTarget(int[][] gameboard, int[] coordinates) {
         int row = coordinates[0];
         int col = coordinates[1];
-        checkForMine(gameboard, coordinates);
-        if (gameboard[row][col] > 0) {
-            gameboard[row][col] = -1;
-            System.out.println("HIT");
+        if (checkForMine(gameboard, coordinates)){
             return true;
-        } else {
-            gameboard[row][col] = -2;
-            System.out.println("MISS");
-            return false;
+        }else{
+            if (gameboard[row][col] > 0) {
+                gameboard[row][col] = -1;
+                System.out.println("HIT");
+                return true;
+            } else {
+                gameboard[row][col] = -2;
+                System.out.println("MISS");
+                return false;
+            }
         }
     }
 
@@ -253,7 +256,6 @@ public class gamelogic {
 
     public static void minesComputerPlayer(int[][] computergameboard, int[][] playergameboard) {
         placeMines(computergameboard);
-        createBoard.printGameBoard(computergameboard, "game");
         placeMines(playergameboard);
         playerAgainstComputer(computergameboard, playergameboard);
     }
@@ -263,6 +265,55 @@ public class gamelogic {
         placeMines(player1gameboard);
         playerAgainstPlayer(player1gameboard, player2gameboard);
     }
+
+    public static void minesComputerComputer(int[][] computer1gameboard, int[][] computer2gameboard) {
+        String turn = "Computer 1 Turn";
+        placeMines(computer1gameboard);
+        placeMines(computer2gameboard);
+        while (checkGameOver(computer1gameboard) || !checkGameOver(computer2gameboard)) {
+            if (turn.equals("Computer 1 Turn")) {
+                createBoard.printGameBoard(computer1gameboard, "game");
+                computer.computerTurn(computer2gameboard);
+                createBoard.printGameBoard(computer2gameboard, "target");
+                boolean repeat2 = true;
+                while (repeat2) {
+                    System.out.println("Enter 1 to switch to Player 2 Turn");
+                    int switchturn = validation.intValidation();
+                    if (switchturn == 1) {
+                        turn = "Computer 2 Turn";
+                        System.out.println(turn);
+                        repeat2 = false;
+                    } else {
+                        System.out.println("Invalid Option");
+                        repeat2 = true;
+                    }
+                }
+            } else if (turn.equals("Computer 2 Turn")) {
+                createBoard.printGameBoard(computer2gameboard, "game");
+                computer.computerTurn(computer1gameboard);
+                createBoard.printGameBoard(computer1gameboard, "target");
+                boolean repeat2 = true;
+                while (repeat2) {
+                    System.out.println("Enter 1 to switch to Player 2 Turn");
+                    int switchturn = validation.intValidation();
+                    if (switchturn == 1) {
+                        turn = "Computer 1 Turn";
+                        System.out.println(turn);
+                        repeat2 = false;
+                    } else {
+                        System.out.println("Invalid Option");
+                        repeat2 = true;
+                    }
+                }
+            }
+        }
+        if (checkGameOver(computer1gameboard)) {
+            System.out.println("COMPUTER 1 WINS!");
+        } else if (checkGameOver(computer2gameboard)) {
+            System.out.println("COMPUTER 2 WINS!");
+        }
+    }
+
 
     public static void sunkShip(int[][] gameboard) {
         Integer[] shipsizes = configReader.getShipsizes();
@@ -330,7 +381,7 @@ public class gamelogic {
         }
     }
 
-    public static void checkForMine(int[][] gameboard, int[] coordinates) {
+    public static boolean checkForMine(int[][] gameboard, int[] coordinates) {
         int row = coordinates[0];
         int col = coordinates[1];
         try {
@@ -353,8 +404,12 @@ public class gamelogic {
                 } else if (gameboard[row - 1][col - 1] > 0) {
                     gameboard[row - 1][col - 1] = -1;
                 }
+                gameboard[row][col] = -4;
+                return true;
             }
-        }catch (ArrayIndexOutOfBoundsException e){}
+        } catch (ArrayIndexOutOfBoundsException e) {
+        }
+        return false;
     }
 
 }
