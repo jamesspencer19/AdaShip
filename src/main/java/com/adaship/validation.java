@@ -8,6 +8,7 @@ public class validation {
 
     public static Scanner sc = new Scanner(System.in);
 
+    //check that a char has been entered by user
     public static char charValidation() {
         boolean repeat = true;
         char charcol = 0;
@@ -23,6 +24,7 @@ public class validation {
         return charcol;
     }
 
+    //check that an integer has been entered by user
     public static int intValidation() {
         while (!sc.hasNextInt()) {
             System.out.println("Input is not a number!");
@@ -31,6 +33,7 @@ public class validation {
         return sc.nextInt();
     }
 
+    //change location to calibrate direction
     public static void coordValidation(int[] coordinates, char direction) {
         row = coordinates[0];
         col = coordinates[1];
@@ -45,11 +48,13 @@ public class validation {
         }
     }
 
+    //validate that the user is placing the ship on the board
     public static boolean validateLocation(int[][] gameboard, int[] coordinates, char direction, int shipsize) {
         validation.coordValidation(coordinates, direction);
         int row = validation.getRow();
         int col = validation.getCol();
         int i = shipsize;
+        //flag false if the ship goes off the board as it is not placed on water
         boolean flag = true;
         try {
             while (i > 0) {
@@ -81,7 +86,7 @@ public class validation {
         }
         return flag;
     }
-
+    //check if torpedo is on water, ship or mine not a previous hit/miss
     public static boolean validateTorpedo(int[][] gameboard, int[] coordinates) {
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;
@@ -95,6 +100,7 @@ public class validation {
         }
     }
 
+    //validate that a mine is only placed on water
     public static boolean validateMine(int[][] gameboard, int[] coordinates) {
         int gameBoardLength = gameboard.length;
         int gameBoardWidth = gameboard[0].length;

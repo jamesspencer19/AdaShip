@@ -21,14 +21,22 @@ public class configReader {
 
 
     public static void readConfigJSON() throws IOException {
+        //Create a new buffered reader to read the file as a data stream
         BufferedReader br = new BufferedReader(new FileReader("config.iml"));
+        //String for each line
         String line;
+        //Arraylist for ship names to create the array
         ArrayList<String> shipnameslist = new ArrayList<String>(Arrays.asList(shipnames));
+        //Arraylist for ship sizes to create the array
         ArrayList<Integer> shipsizeslist = new ArrayList<Integer>(Arrays.asList(shipsizes));
 
+        //Loop through each line until there is not any more data
         while ((line = br.readLine()) != null) {
+            //Split each word into an array by comma using regex
             String attribute[] = line.split(",");
+            //If the first value is board
             if (attribute[0].equals("board")) {
+                //Extract all board attributes
                 if (attribute[1].equals("length")) {
                     boardLength = Integer.parseInt(attribute[2]);
                 } else if (attribute[1].equals("width")) {
@@ -50,22 +58,30 @@ public class configReader {
                     mine = char0.charAt(0);
                 }
 
-            } else if (attribute[0].equals("boat")) {
+            }//If the first word is boat
+            else if (attribute[0].equals("boat")) {
+                //Extract boat names and sizes
                 shipnameslist.add(attribute[1]);
                 shipsizeslist.add(Integer.parseInt(attribute[2]));
             } else {
-                System.out.println("Error Reading Config");
+                //If the config cannot be read provide error
+                System.err.println("Error Reading Config");
             }
         }
+
+        //create shipname and shipsizes array from the corresponding array lists
         shipnames = shipnameslist.toArray(shipnames);
         shipsizes = shipsizeslist.toArray(shipsizes);
 
+        //Method to check the the ships in the config file fit on the board
         int shipstotal = 0;
-
         for (int i =0; i< shipsizes.length;i++){
+            //Get the sum of all ship sizes
             shipstotal += shipsizes[i];
         }
+        //If the sum of all ships is greater than the board size
         if (shipstotal>(boardWidth*boardLength)){
+            //The config file contains too many ships for the given board size
             System.out.println("Too many ships for board");
             System.exit(0);
         }

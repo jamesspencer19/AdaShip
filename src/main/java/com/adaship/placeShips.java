@@ -2,11 +2,16 @@ package com.adaship;
 
 public class placeShips {
 
+    //place ships on the gameboard
     public static void placeShipsArray(int[][] gameboard, int[] coordinates, char direction, String shipname, int shipsize) {
+        //validate ship location
         validation.coordValidation(coordinates,direction);
+        //get ship names
         String[] shipnames = configReader.getShipnames();
+        //get col and row after validation
         int row = validation.getRow();
         int col = validation.getCol();
+        //get the index of ship in its array
         int i = shipsize;
         while (i > 0) {
             int index =0;
@@ -16,6 +21,7 @@ public class placeShips {
                     break;
                 }
             }
+            //place this index on the board
             if (direction == 'U') {
                 gameboard[row - i][col] = index;
             } else if (direction == 'D') {
