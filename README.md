@@ -20,6 +20,7 @@ I will be creating a system that replicates the game of Battleships. The system 
 <a href="https://ibb.co/KysXjQS"><img src="https://i.ibb.co/pXKxvs5/Ada-Ship-UML.png" alt="Ada-Ship-UML" border="0"></a>
 ### Initial working plan, overall approach, development strategy and approach to quality:
 My working plan is approach the problem by breaking down the overall problem down into smaller tasks. Each task will be organised on a Kanban board and worked on individually therefore taking an Agile approach to development. I will continuously check the quality of the code that I have written through regular code reviews with my partner, Morgan McNeil. This will help me to highlight code smells that I may not be necessarily able to see myself.
+
 ### Analysis and decomposition of the overall problem into key ‘epic’ style tasks:
 My approach to creating this system will be to break down the epic, into smaller stories that can be worked on individually. I have created a Kanban board using GitHub to complete this process.
 {Kanban Board Image}
