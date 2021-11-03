@@ -5,7 +5,8 @@ Essentially, AdaShip is a clone of the classic ‘Battleship’ game – as a de
 To run AdaShip on Repl.it you first need to import the GitHub Repo. Then please set the run configuration to the following:  
 * Select Language: `Java`
 * Run Command: `mvn clean compile exec:java`
-  <a href="https://imgbb.com/"><img src="https://i.ibb.co/yNhY7Xg/Repl-it.png" alt="Repl-it" border="0"></a>
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/yNhY7Xg/Repl-it.png" alt="Repl-it" border="0"></a>
 ## Challenge Outline:
 The Ada Battleships assignment is to create a console-style based game of "battleships". The code should be written in an advanced way, following the standards of Object Orientated Programming whilst using polymorphism and inheritance. And making sure that my code is both reusable and efficient.
 ### Problem Summary:
