@@ -55,7 +55,7 @@ public class gamelogic {
         //First turn is player
         String turn = "Player Turn";
         //while the game is not over
-        while (checkGameOver(computergameboard) || !checkGameOver(playergameboard)) {
+        while (!checkGameOver(computergameboard) || !checkGameOver(playergameboard)) {
             //If the turn is the players
             if (turn.equals("Player Turn")) {
                 //Print the players gameboard
@@ -131,7 +131,7 @@ public class gamelogic {
         //First turn is player
         String turn = "Player 1 Turn";
         //while the game is not over
-        while (checkGameOver(player1gameboard) || !checkGameOver(player2gameboard)) {
+        while (!checkGameOver(player1gameboard) || !checkGameOver(player2gameboard)) {
             //If turn is player 1
             if (turn.equals("Player 1 Turn")) {
                 //Print it is player 1 turn
@@ -248,9 +248,7 @@ public class gamelogic {
                 //Get the amount of ships left
                 int computershipsleft = shipsleft(computergameboard);
                 //fire a torpedo for each ship left
-                for (int sl = 0; sl < computershipsleft; sl++) {
-                    computer.computerTurn(playergameboard);
-                }
+                computer.salvoComputer(computershipsleft, playergameboard);
                 //switch turn
                 turn = getTurn(turn);
             }

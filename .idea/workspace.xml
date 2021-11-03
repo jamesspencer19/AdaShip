@@ -10,8 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/AdaShipUML.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adaship.uml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/AdaShipMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/configReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/configReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,17 +101,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AdaShip" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/AdaShip_jar/AdaShip.jar" />
       <option name="WORKING_DIRECTORY" value="C:\Users\James PC\Desktop\AdaShip2" />
@@ -116,8 +110,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JAR Application.AdaShip" />
       <item itemvalue="Application.AdaShip" />
+      <item itemvalue="JAR Application.AdaShip" />
     </list>
     <recent_temporary>
       <list>
@@ -142,7 +136,8 @@
       <workItem from="1634547887866" duration="16757000" />
       <workItem from="1634631458374" duration="58306000" />
       <workItem from="1635152684536" duration="73996000" />
-      <workItem from="1635687648774" duration="38237000" />
+      <workItem from="1635687648774" duration="42639000" />
+      <workItem from="1635867527396" duration="8353000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -417,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635860616471</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="UML Changed">
+      <created>1635860756398</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1635860756398</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +438,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed display of computer board" />
     <MESSAGE value="Indexing error fixed" />
     <MESSAGE value="Column changed to A-Z" />
     <MESSAGE value="Column changed to A-Z for shot" />
@@ -461,6 +462,7 @@
     <MESSAGE value="UML &amp; Menu Validation" />
     <MESSAGE value="Removed Dependencies" />
     <MESSAGE value="Comments added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments added" />
+    <MESSAGE value="UML Changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="UML Changed" />
   </component>
 </project>

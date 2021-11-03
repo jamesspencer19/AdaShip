@@ -20,7 +20,7 @@ public class AdaShipMenu {
         while (repeat) {
             //Provide all game mode options to the user
             System.out.println("Menu: \n" + "1. Player vs Computer\n2. Player vs Player\n3. Player vs Computer (Salvo)\n4. Player vs Player (Salvo)\n" +
-                    "5. Player vs Computer (Mines)\n6. Player vs Player (Mines)\n7. Copmuter vs Computer (Mines)\n8. Quit\n");
+                    "5. Player vs Computer (Mines)\n6. Player vs Player (Mines)\n7. Computer vs Computer (Mines)\n8. Quit\n");
             //Validate that the user has entered a valid integer
             int answer = validation.intValidation();
             //Dependant on the user input the gamemode that the have selected is run

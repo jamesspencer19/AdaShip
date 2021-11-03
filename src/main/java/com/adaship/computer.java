@@ -63,5 +63,27 @@ public class computer {
         System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
     }
 
+    public static void salvoComputer(int computershipsleft, int[][] attackgameboard) {
+        int hits = 0;
+        int miss = 0;
+        //for each ship left
+        for (int sl = 0; sl < computershipsleft; sl++) {
+            randomGenerator.randomiser();
+            //player makes a torpedo shot
+            int[] attackcoordinates = randomGenerator.getRandCoordinates();
+            //validate torpedo location
+            if (validation.validateTorpedo(attackgameboard, attackcoordinates)) {
+                if (gamelogic.guessAgainstTarget(attackgameboard, attackcoordinates)) {
+                    hits++;
+                } else {
+                    miss++;
+                }
+                createBoard.printGameBoard(attackgameboard, "target");
+                gamelogic.sunkShip(attackgameboard);
+                System.out.println("Player Hits: " + hits + "\nPlayer Misses: " + miss);
+            }
+        }
+    }
+
 
 }

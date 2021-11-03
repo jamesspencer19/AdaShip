@@ -20,7 +20,7 @@ public class configReader {
     public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
 
-    public static void readConfigJSON() throws IOException {
+    public static void readConfig() throws IOException {
         //Create a new buffered reader to read the file as a data stream
         BufferedReader br = new BufferedReader(new FileReader("config.iml"));
         //String for each line
