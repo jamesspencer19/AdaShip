@@ -52,6 +52,12 @@ public class gamelogic {
     
     //Player against computer method
     public static void playerAgainstComputer(int[][] computergameboard, int[][] playergameboard) {
+        //record hits and misses
+        int phits = 0;
+        int pmiss = 0;
+        //record hits and misses
+        int chits = 0;
+        int cmiss = 0;
         //First turn is player
         String turn = "Player Turn";
         //while the game is not over
@@ -68,8 +74,23 @@ public class gamelogic {
                     //If the torpedo location is valid on the opponents board
                     if (validation.validateTorpedo(computergameboard, playercoordinates)) {
                         //Provide the player with the result of their torpedo shot
-                        player.playerShotInfo(computergameboard, playergameboard, playercoordinates, turn);
+                        //if coordinates are a hit
+                        if (guessAgainstTarget(computergameboard, playercoordinates)) {
+                            //incerase hits
+                            phits++;
+                        }
+                        //if coordinates miss
+                        else {
+                            //increase misses
+                            pmiss++;
+                        }
+                        System.out.println(turn + " Hits: " + phits + "\n" + turn + " Misses: " + pmiss);
                         //Loop to Switch turn to computer on the input of 1
+                        //print game and target boards
+                        createBoard.printGameBoard(playergameboard, "game");
+                        createBoard.printGameBoard(computergameboard, "target");
+                        //check if any ships have sunk
+                        gamelogic.sunkShip(computergameboard);
                         boolean repeat2 = true;
                         while (repeat2) {
                             System.out.println("Enter 1 to switch to Computer Turn");
@@ -95,8 +116,22 @@ public class gamelogic {
             //If the turn is the computers
             else if (turn.equals("Computer Turn")) {
                 //Play the computer shot on the player board
-                computer.computerTurn(playergameboard);
-                //Switch turn
+                //Generate random values
+                randomGenerator.randomiser();
+                //If the coordiates are a HIT on a Mine/Ship
+                if (gamelogic.guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates())) {
+                    //Increment hits
+                    chits++;
+                }
+                //If the coordiates are a MISS
+                else {
+                    //Increment misses
+                    cmiss++;
+                }
+                //Check if any ships have been sunk
+                gamelogic.sunkShip(playergameboard);
+                //Display the computers hits and misses
+                System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);                //Switch turn
                 turn = getTurn(turn);
             }
         }
@@ -128,6 +163,12 @@ public class gamelogic {
 
     //Player vs Player method
     public static void playerAgainstPlayer(int[][] player1gameboard, int[][] player2gameboard) {
+        //record hits and misses
+        int p1hits = 0;
+        int p1miss = 0;
+        //record hits and misses
+        int p2hits = 0;
+        int p2miss = 0;
         //First turn is player
         String turn = "Player 1 Turn";
         //while the game is not over
@@ -145,7 +186,23 @@ public class gamelogic {
                     //If the torpedo location is valid on the opponents board
                     if (validation.validateTorpedo(player2gameboard, player1coordinates)) {
                         //Provide the player with the result of their torpedo shot
-                        player.playerShotInfo(player2gameboard, player1gameboard, player1coordinates, turn);
+                        //if coordinates are a hit
+                        if (guessAgainstTarget(player2gameboard, player1coordinates)) {
+                            //incerase hits
+                            p1hits++;
+                        }
+                        //if coordinates miss
+                        else {
+                            //increase misses
+                            p1miss++;
+                        }
+                        System.out.println(turn + " Hits: " + p1hits + "\n" + turn + " Misses: " + p1miss);
+                        //Loop to Switch turn to computer on the input of 1
+                        //print game and target boards
+                        createBoard.printGameBoard(player1gameboard, "game");
+                        createBoard.printGameBoard(player2gameboard, "target");
+                        //check if any ships have sunk
+                        gamelogic.sunkShip(player2gameboard);
                         boolean repeat2 = true;
                         //Loop to Switch turn to player 2 on the input of 1
                         while (repeat2) {
@@ -180,7 +237,23 @@ public class gamelogic {
                     //If the torpedo location is valid on the opponents board
                     if (validation.validateTorpedo(player1gameboard, player2coordinates)) {
                         //Provide the player with the result of their torpedo shot
-                        player.playerShotInfo(player1gameboard, player2gameboard, player2coordinates, turn);
+                        //if coordinates are a hit
+                        if (guessAgainstTarget(player1gameboard, player2coordinates)) {
+                            //incerase hits
+                            p2hits++;
+                        }
+                        //if coordinates miss
+                        else {
+                            //increase misses
+                            p2miss++;
+                        }
+                        System.out.println(turn + " Hits: " + p2hits + "\n" + turn + " Misses: " + p2miss);
+                        //Loop to Switch turn to computer on the input of 1
+                        //print game and target boards
+                        createBoard.printGameBoard(player2gameboard, "game");
+                        createBoard.printGameBoard(player1gameboard, "target");
+                        //check if any ships have sunk
+                        gamelogic.sunkShip(player1gameboard);
                         //Loop to Switch turn to player 2 on the input of 1
                         boolean repeat2 = true;
                         while (repeat2) {
@@ -213,6 +286,13 @@ public class gamelogic {
 
     //Salvo PLayer vs Computer Method
     public static void salvoPlayerComputer(int[][] computergameboard, int[][] playergameboard) {
+        //record hits and misses
+        int p1hits = 0;
+        int p1miss = 0;
+        //record hits and misses
+        //record hits and misses
+        int chits = 0;
+        int cmiss = 0;
         //First turn is the player
         String turn = "Player Turn";
         //while the game is not over
@@ -226,6 +306,9 @@ public class gamelogic {
                 while (repeat) {
                     //Play the salvo game mode
                     player.salvoPlayer(playershipsleft, computergameboard);
+                    p1hits = player.getHits() + p1hits;
+                    p1miss = player.getMiss() + p1miss;
+                    System.out.println(turn + " Overall hits: " + p1hits + "Overall Misses: " + p1miss);
                     //Loop to Switch turn to computer on the input of 1
                     boolean repeat2 = true;
                     while (repeat2) {
@@ -249,6 +332,9 @@ public class gamelogic {
                 int computershipsleft = shipsleft(computergameboard);
                 //fire a torpedo for each ship left
                 computer.salvoComputer(computershipsleft, playergameboard);
+                chits = computer.getHits() + chits;
+                cmiss = computer.getMiss() + chits;
+                System.out.println(turn + " Overall hits: " + chits + "Overall Misses: " + chits);
                 //switch turn
                 turn = getTurn(turn);
             }
@@ -263,6 +349,13 @@ public class gamelogic {
 
     //Salvo Player vs Player
     public static void salvoPlayerPlayer(int[][] player1gameboard, int[][] player2gameboard) {
+        //record hits and misses
+        int p1hits = 0;
+        int p1miss = 0;
+        //record hits and misses
+        int p2hits = 0;
+        int p2miss = 0;
+        //First turn is player
         String turn = "Player 1 Turn";
         while (checkGameOver(player1gameboard) || !checkGameOver(player2gameboard)) {
             if (turn.equals("Player 1 Turn")) {
@@ -273,6 +366,9 @@ public class gamelogic {
                     int player1shipsleft = shipsleft(player1gameboard);
                     //Run the salvo player
                     player.salvoPlayer(player1shipsleft, player2gameboard);
+                    p1hits = player.getHits() + p1hits;
+                    p1miss = player.getMiss() + p1miss;
+                    System.out.println(turn + " Overall hits: " + p1hits + "Overall Misses: " + p1miss);
                     boolean repeat2 = true;
                     while (repeat2) {
                         System.out.println("Enter 1 to switch to Player 2 Turn");
@@ -297,6 +393,9 @@ public class gamelogic {
                     int player2shipsleft = shipsleft(player2gameboard);
                     //Run the salvo player
                     player.salvoPlayer(player2shipsleft, player1gameboard);
+                    p2hits = player.getHits() + p2hits;
+                    p2miss = player.getMiss() + p2miss;
+                    System.out.println(turn + " Overall hits: " + p2hits + "Overall Misses: " + p2miss);
                     boolean repeat2 = true;
                     while (repeat2) {
                         System.out.println("Enter 1 to switch to Player 1 Turn");
@@ -342,6 +441,13 @@ public class gamelogic {
 
     //Computer vs Computer
     public static void minesComputerComputer(int[][] computer1gameboard, int[][] computer2gameboard) {
+        //record hits and misses
+        int c1hits = 0;
+        int c1miss = 0;
+        //record hits and misses
+        int c2hits = 0;
+        int c2miss = 0;
+        //First turn is player
         String turn = "Computer 1 Turn";
         //place mines on each board
         placeMines(computer1gameboard);
@@ -349,7 +455,22 @@ public class gamelogic {
         while (checkGameOver(computer1gameboard) || !checkGameOver(computer2gameboard)) {
             if (turn.equals("Computer 1 Turn")) {
                 createBoard.printGameBoard(computer1gameboard, "game");
-                computer.computerTurn(computer2gameboard);
+                //Generate random values
+                randomGenerator.randomiser();
+                //If the coordiates are a HIT on a Mine/Ship
+                if (gamelogic.guessAgainstTarget(computer2gameboard, randomGenerator.getRandCoordinates())) {
+                    //Increment hits
+                    c1hits++;
+                }
+                //If the coordiates are a MISS
+                else {
+                    //Increment misses
+                    c1miss++;
+                }
+                //Check if any ships have been sunk
+                gamelogic.sunkShip(computer2gameboard);
+                //Display the computers hits and misses
+                System.out.println("Computer Hits: " + c1hits + "\nComputer Misses: " + c1miss);
                 createBoard.printGameBoard(computer2gameboard, "target");
                 boolean repeat2 = true;
                 while (repeat2) {
@@ -366,7 +487,22 @@ public class gamelogic {
                 }
             } else if (turn.equals("Computer 2 Turn")) {
                 createBoard.printGameBoard(computer2gameboard, "game");
-                computer.computerTurn(computer1gameboard);
+                //Generate random values
+                randomGenerator.randomiser();
+                //If the coordiates are a HIT on a Mine/Ship
+                if (gamelogic.guessAgainstTarget(computer1gameboard, randomGenerator.getRandCoordinates())) {
+                    //Increment hits
+                    c2hits++;
+                }
+                //If the coordiates are a MISS
+                else {
+                    //Increment misses
+                    c2miss++;
+                }
+                //Check if any ships have been sunk
+                gamelogic.sunkShip(computer1gameboard);
+                //Display the computers hits and misses
+                System.out.println("Computer Hits: " + c2hits + "\nComputer Misses: " + c2miss);
                 createBoard.printGameBoard(computer1gameboard, "target");
                 boolean repeat2 = true;
                 while (repeat2) {

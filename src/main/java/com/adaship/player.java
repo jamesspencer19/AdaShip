@@ -9,6 +9,8 @@ public class player {
     public static int[][] playerGameboard;
     public static int[] playercoordinates;
     public static Scanner sc = new Scanner(System.in);
+    public static int hits = 0;
+    public static int miss = 0;
 
     //player placing ships method
     public static int[][] playerPlaceShips(int playernum) {
@@ -221,34 +223,8 @@ public class player {
         return playercoordinates;
     }
 
-    //process the torpedo shot
-    public static void playerShotInfo(int[][] attackboard, int[][] currentgameboard, int[] attackcoordinates, String turn) {
-        //record hits and misses
-        int phits = 0;
-        int pmiss = 0;
-        //if coordinates are a hit
-        if (gamelogic.guessAgainstTarget(attackboard, attackcoordinates)) {
-            //incerase hits
-            phits++;
-        }
-        //if coordinates miss
-        else {
-            //increase misses
-            pmiss++;
-        }
-        //print game and target boards
-        createBoard.printGameBoard(currentgameboard, "game");
-        createBoard.printGameBoard(attackboard, "target");
-        //check if any ships have sunk
-        gamelogic.sunkShip(attackboard);
-        //display the users hits and misses
-        System.out.println(turn + " Hits: " + phits + "\n" + turn + " Misses: " + pmiss);
-    }
-
     //salvo game mode
     public static void salvoPlayer(int playershipsleft, int[][] attackgameboard) {
-        int hits = 0;
-        int miss = 0;
         //for each ship left
         for (int sl = 0; sl < playershipsleft; sl++) {
             //player makes a torpedo shot
@@ -267,4 +243,11 @@ public class player {
         }
     }
 
+    public static int getHits() {
+        return hits;
+    }
+
+    public static int getMiss() {
+        return miss;
+    }
 }

@@ -3,6 +3,9 @@ package com.adaship;
 import java.util.Arrays;
 
 public class computer {
+    public static int hits = 0;
+    public static int miss = 0;
+    //for each ship left
 
     //Computer player method
     public static int[][] computerPlayer() {
@@ -40,33 +43,8 @@ public class computer {
         return computerGameboard;
     }
 
-    //Computer turn to fire torpedo
-    public static void computerTurn(int[][] playergameboard){
-        //Computer hits and misses
-        int chits = 0;
-        int cmiss = 0;
-        //Generate random values
-        randomGenerator.randomiser();
-        //If the coordiates are a HIT on a Mine/Ship
-        if (gamelogic.guessAgainstTarget(playergameboard, randomGenerator.getRandCoordinates())) {
-            //Increment hits
-            chits++;
-        }
-        //If the coordiates are a MISS
-        else {
-            //Increment misses
-            cmiss++;
-        }
-        //Check if any ships have been sunk
-        gamelogic.sunkShip(playergameboard);
-        //Display the computers hits and misses
-        System.out.println("Computer Hits: " + chits + "\nComputer Misses: " + cmiss);
-    }
 
     public static void salvoComputer(int computershipsleft, int[][] attackgameboard) {
-        int hits = 0;
-        int miss = 0;
-        //for each ship left
         for (int sl = 0; sl < computershipsleft; sl++) {
             randomGenerator.randomiser();
             //player makes a torpedo shot
@@ -85,5 +63,11 @@ public class computer {
         }
     }
 
+    public static int getHits() {
+        return hits;
+    }
 
+    public static int getMiss() {
+        return miss;
+    }
 }
