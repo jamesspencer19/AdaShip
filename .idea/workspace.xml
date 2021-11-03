@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="150680e0-bc76-4216-ab6d-19a8aa8a45cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/gamelogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/adaship/player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +97,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AdaShip" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/AdaShip_jar/AdaShip.jar" />
       <option name="WORKING_DIRECTORY" value="C:\Users\James PC\Desktop\AdaShip2" />
@@ -131,7 +146,7 @@
       <workItem from="1634631458374" duration="58306000" />
       <workItem from="1635152684536" duration="73996000" />
       <workItem from="1635687648774" duration="42639000" />
-      <workItem from="1635867527396" duration="12256000" />
+      <workItem from="1635867527396" duration="14137000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Git Commit">
       <created>1633960719601</created>
@@ -427,7 +442,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635935816963</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="README.md">
+      <created>1635937263152</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1635937263152</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Bug Fix">
+      <created>1635938448395</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1635938448395</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +475,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Column changed to A-Z" />
     <MESSAGE value="Column changed to A-Z for shot" />
     <MESSAGE value="Duplicated Code Extracted into Method" />
     <MESSAGE value="V1 Working" />
@@ -471,6 +499,7 @@
     <MESSAGE value="Comments added" />
     <MESSAGE value="UML Changed" />
     <MESSAGE value="README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="README.md" />
+    <MESSAGE value="Bug Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug Fix" />
   </component>
 </project>
